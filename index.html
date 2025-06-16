@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PRODI TRKJ – Beranda</title>
+  <link rel="icon" type="image/png" href="universitas-bung-hatta-logo.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+    body{font-family:'Poppins',sans-serif;line-height:1.6;color:#333;background:#f9f9f9;}
+
+    /* ===== HEADER ===== */
+    .pnup-header{background:#00008B;color:#fff;}
+    .pnup-header h2{font-weight:700;font-size:1.8rem;margin-bottom:.25rem;}
+    .pnup-header small{color:#cfd8dc;font-size:1rem;}
+
+    /* ===== NAVBAR ===== */
+    .navbar-custom{background:#1e53ea;font-size:.92rem;}
+    .navbar-custom .nav-link,
+    .navbar-custom .navbar-brand,
+    .navbar-custom .dropdown-toggle{color:#fff;}
+    .navbar-custom .nav-link:hover,
+    .navbar-custom .navbar-brand:hover{color:#cfe3ff;}
+    .navbar-custom .nav-link.active,
+    .navbar-custom .nav-link.show{background:#0080FF;color:#fff;}
+    @media(min-width:992px){.navbar-custom .dropdown:hover>.dropdown-menu{display:block;}}
+
+    /* ===== HERO ===== */
+    .hero{background:url('6.JPG') no-repeat center/cover;height:80vh;display:flex;align-items:center;color:#fff;padding:0 2rem;text-shadow:0 0 5px #000,0 0 10px #000;}
+    .hero-text{background:rgba(0,0,0,.5);padding:1.5rem 2rem;border-radius:12px;max-width:650px;}
+    .hero h1{font-size:3rem;font-weight:700;max-width:600px;}
+    .hero p{font-size:1.25rem;max-width:600px;margin-bottom:1.5rem;}
+    .btn-hero{background:#00008B;border:none;padding:.75rem 1.75rem;font-size:1.1rem;font-weight:600;border-radius:4px;color:#fff;transition:.3s;}
+    .btn-hero:hover{background:#1e53ea;color:#fff;}
+
+    /* ===== FEATURES ===== */
+    .features{padding:4rem 2rem;background:#fff;text-align:center;}
+    .features h2{font-weight:700;margin-bottom:2rem;}
+    .feature-item{padding:1.5rem;border-radius:8px;background:#e0f2f1;margin-bottom:2rem;transition:.3s;}
+    .feature-item:hover{transform:translateY(-8px);background:#b2dfdb;}
+    .feature-icon{font-size:3rem;color:#004d40;margin-bottom:1rem;}
+    .feature-title{font-size:1.3rem;font-weight:600;margin-bottom:.5rem;}
+    .feature-desc{font-size:1rem;color:#555;}
+
+    /* ===== NEWS ===== */
+    .news{padding:4rem 2rem;background:#f1f8f7;}
+    .news h2{text-align:center;font-weight:700;margin-bottom:3rem;}
+    .news-card{background:#fff;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.1);overflow:hidden;transition:.3s;}
+    .news-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.15);}
+    .news-img{width:100%;height:180px;object-fit:cover;}
+    .news-body{padding:1rem 1.5rem;}
+    .news-title{font-weight:700;font-size:1.2rem;margin-bottom:.5rem;color:#1e53ea;}
+    .news-excerpt{font-size:.95rem;color:#666;margin-bottom:1rem;}
+    .news-date{font-size:.85rem;color:#999;}
+
+    /* ===== FOOTER ===== */
+    footer{background:#1e53ea;color:#ccc;padding:2rem;text-align:center;font-size:.9rem;}
+
+    @media(min-width:768px){
+      .features-row{display:flex;justify-content:center;gap:2rem;}
+      .feature-item{flex:1 1 30%;margin-bottom:0;}
+      .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== TOP HEADER ===== -->
+<section class="pnup-header">
+  <div class="container-fluid d-flex justify-content-between align-items-center flex-wrap py-3 px-4">
+    <div class="d-flex align-items-center gap-3" style="margin-left:-10px;">
+      <a href="index.html"><img src="universitas-bung-hatta-logo.png" alt="Logo UBH" style="height:85px;object-fit:contain;"></a>
+      <div>
+        <h2 class="mb-0" style="font-size:1.6rem;">D4 PRODI Teknologi Rekayasa</h2>
+        <h2 class="mb-0" style="font-size:1.6rem;">Komputer Jaringan (TRKJ)</h2>
+        <small>Universitas Bung Hatta</small>
+      </div>
+    </div>
+    <div class="mt-3 mt-md-0" style="margin-right:-10px;">
+      <a href="index.html"><img src="trkj.png" alt="Logo TRKJ" style="height:85px;object-fit:contain;"></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg navbar-custom shadow-sm border-bottom-0">
+  <div class="container-fluid active">
+    <a class="nav-link" href="index.html">Beranda</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+      <span class="navbar-toggler-icon" style="filter:invert(1);"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-3">
+        <!-- PROFIL -->
+        <li class="nav-item dropdown px-3">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Profil</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="visi-misi.html">Visi Misi</a></li>
+            <li><a class="dropdown-item" href="sejarah.html">Sejarah</a></li>
+            <li><a class="dropdown-item" href="struktur-kaprodi-dosen.html">Struktur Kaprodi & Dosen</a></li>
+            <li><a class="dropdown-item" href="struktur-organisasi.html">Struktur Himpunan Mahasiswa</a></li>
+            <li><a class="dropdown-item" href="profil-lulusan.html">Profil Lulusan</a></li>
+            <li><a class="dropdown-item" href="akreditasi.html">Akreditasi</a></li>
+          </ul>
+        </li>
+        <!-- BERITA -->
+        <li class="nav-item px-3"><a class="nav-link" href="berita.html">Berita</a></li>
+        <!-- P&P -->
+        <li class="nav-item dropdown px-3">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Penelitian & Pengabdian</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="penelitian.html">Penelitian</a></li>
+            <li><a class="dropdown-item" href="publikasi.html">Publikasi</a></li>
+            <li><a class="dropdown-item" href="pengabdian.html">Pengabdian Kepada Masyarakat</a></li>
+            <li><a class="dropdown-item" href="katalog-riset.html">Katalog Hasil Riset</a></li>
+          </ul>
+        </li>
+        <!-- KEMAHASISWAAN -->
+        <li class="nav-item dropdown px-3">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Kemahasiswaan</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="kegiatan.html">Kegiatan</a></li>
+            <li><a class="dropdown-item" href="prestasi.html">Prestasi</a></li>
+            <li><a class="dropdown-item" href="sertifikasi.html">Sertifikasi Kompetensi</a></li>
+          </ul>
+        </li>
+        <!-- PENGEMBANGAN -->
+        <li class="nav-item dropdown px-3">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pengembangan</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="pelatihan.html">Pelatihan / Workshop</a></li>
+            <li><a class="dropdown-item" href="magang-dosen.html">Magang Dosen</a></li>
+            <li><a class="dropdown-item" href="magang-mahasiswa.html">Magang Mahasiswa</a></li>
+          </ul>
+        </li>
+        <!-- KERJASAMA -->
+        <li class="nav-item dropdown px-3">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Kerjasama</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="kerjasama-dalam-negeri.html">Dalam Negeri</a></li>
+            <li><a class="dropdown-item" href="kerjasama-luar-negeri.html">Luar Negeri</a></li>
+          </ul>
+        </li>
+        <!-- FASILITAS -->
+        <li class="nav-item px-3"><a class="nav-link" href="fasilitas.html">Fasilitas</a></li>
+        <!-- KONTAK -->
+        <li class="nav-item px-3"><a class="nav-link" href="kontak.html">Kontak</a></li>
+      </ul>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Teknologi Rekayasa Komputer Jaringan</h1>
+    <p>Membangun profesional jaringan masa depan dengan pengetahuan dan keterampilan terdepan.</p>
+    <a href="sejarah.html" class="btn-hero">Pelajari Lebih Lanjut</a>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="features container">
+  <h2>Keunggulan Prodi TRKJ</h2>
+  <div class="features-row">
+    <div class="feature-item">
+      <div class="feature-icon">💻</div>
+      <div class="feature-title">Pengajaran Modern</div>
+      <p class="feature-desc">Kurikulum terupdate dengan teknologi terkini di bidang jaringan komputer.</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">🛠️</div>
+      <div class="feature-title">Laboratorium Lengkap</div>
+      <p class="feature-desc">Fasilitas praktikum yang mendukung pembelajaran dan riset mahasiswa.</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">🌐</div>
+      <div class="feature-title">Kerja Sama Industri</div>
+      <p class="feature-desc">Kolaborasi dengan perusahaan jaringan terkemuka untuk magang dan penempatan kerja.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEWS ===== -->
+<section class="news container">
+  <h2>Berita Terbaru</h2>
+  <div class="news-grid">
+    <div class="news-card">
+      <img class="news-img" src="3.JPG" alt="Berita 1">
+      <div class="news-body">
+        <h3 class="news-title">Workshop Jaringan Komputer 2025</h3>
+        <p class="news-excerpt">Program pelatihan intensif untuk membekali mahasiswa dengan kemampuan praktis.</p>
+        <p class="news-date">5 Juni 2025</p>
+      </div>
+    </div>
+    <div class="news-card">
+      <img class="news-img" src="7.JPG" alt="Berita 2">
+      <div class="news-body">
+        <h3 class="news-title">Kerjasama dengan PT Teknologi Jaringan</h3>
+        <p class="news-excerpt">Membangun sinergi dalam pengembangan teknologi jaringan dan peluang kerja.</p>
+        <p class="news-date">28 Mei 2025</p>
+      </div>
+    </div>
+    <div class="news-card">
+      <img class="news-img" src="5.JPG" alt="Berita 3">
+      <div class="news-body">
+        <h3 class="news-title">Pengembangan Kurikulum 2025</h3>
+        <p class="news-excerpt">Pembaruan materi agar sesuai dengan perkembangan industri teknologi.</p>
+        <p class="news-date">15 Mei 2025</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  &copy; 2025 PRODI TRKJ — Universitas Bung Hatta, Padang.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
