@@ -4,100 +4,360 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PRODI TRKJ – Beranda</title>
-  <link rel="icon" type="image/png" href="universitas-bung-hatta-logo.png">
+  <link rel="icon" type="image/png" href="universitas-bung-hatta-logo.png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <style>
-    body{font-family:'Poppins',sans-serif;line-height:1.6;color:#333;background:#f9f9f9;}
+    :root {
+      --primary:#1e53ea;
+      --secondary:#00008B;
+      --bg-light:#f9f9f9;
+      --heading-clamp: clamp(1.8rem, 4vw+1rem, 3rem);
+    }
+    body{font-family:'Aref Ruqaa';background:var(--bg-light);color:#333;}
 
     /* ===== HEADER ===== */
-    .pnup-header{background:#00008B;color:#fff;}
-    .pnup-header h2{font-weight:700;font-size:1.8rem;margin-bottom:.25rem;}
-    .pnup-header small{color:#cfd8dc;font-size:1rem;}
+    .pnup-header{background:var(--secondary);color:#fff;font-size:.95rem;line-height:1.3;}
+    .pnup-header img{height:75px}
+    .pnup-header h2{font-weight:300;font-size:1.35rem;margin:0}
 
     /* ===== NAVBAR ===== */
-    .navbar-custom{background:#1e53ea;font-size:.92rem;}
-    .navbar-custom .nav-link,
-    .navbar-custom .navbar-brand,
-    .navbar-custom .dropdown-toggle{color:#fff;}
-    .navbar-custom .nav-link:hover,
-    .navbar-custom .navbar-brand:hover{color:#cfe3ff;}
-    .navbar-custom .nav-link.active,
-    .navbar-custom .nav-link.show{background:#0080FF;color:#fff;}
-    @media(min-width:992px){.navbar-custom .dropdown:hover>.dropdown-menu{display:block;}}
+    .navbar-custom{background:var(--primary);}  
+    .navbar-custom .nav-link{color:#fff;transition:color .3s;}
+    .navbar-custom .nav-link:hover{color:#cfe3ff;}
+    .navbar-toggler-icon{filter:invert(1);}  
 
     /* ===== HERO ===== */
-    .hero{background:url('6.JPG') no-repeat center/cover;height:80vh;display:flex;align-items:center;color:#fff;padding:0 2rem;text-shadow:0 0 5px #000,0 0 10px #000;}
-    .hero-text{background:rgba(0,0,0,.5);padding:1.5rem 2rem;border-radius:12px;max-width:650px;}
-    .hero h1{font-size:3rem;font-weight:700;max-width:600px;}
-    .hero p{font-size:1.25rem;max-width:600px;margin-bottom:1.5rem;}
-    .btn-hero{background:#00008B;border:none;padding:.75rem 1.75rem;font-size:1.1rem;font-weight:600;border-radius:4px;color:#fff;transition:.3s;}
-    .btn-hero:hover{background:#1e53ea;color:#fff;}
+.hero {
+  background: url('6.JPG') no-repeat center/cover;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  color: #fff;
+  text-shadow: 0 0 5px #000, 0 0 10px #000;
+}
+
+.hero-text {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 60vh;
+    text-align: center;
+  }
+
+  .hero-text {
+    margin: 0 auto;
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 16px;
+    max-width: 90%;
+  }
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+  .hero-text p {
+    font-size: 1rem;
+  }
+  .btn-hero {
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+  }
+}
+.mitra-logo {
+  height: 60px;
+  max-width: 120px;
+  object-fit: contain;
+  transition: transform 0.3s ease, opacity 0.3s;
+  opacity: 0.85;
+}
+.mitra-logo:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+.pnup-header small {
+    color: #cfd8dc;
+    font-size: 1rem;
+}
+
+.hero {
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  position: relative;
+}
+
+.hero-text {
+  max-width: 700px;
+  padding: 20px;
+  margin-top: -50px;
+}
+
+.btn-hero {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 12px 28px;
+  font-weight: 500;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-hero:hover {
+  transform: scale(1.05);
+}
 
     /* ===== FEATURES ===== */
-    .features{padding:4rem 2rem;background:#fff;text-align:center;}
-    .features h2{font-weight:700;margin-bottom:2rem;}
-    .feature-item{padding:1.5rem;border-radius:8px;background:#e0f2f1;margin-bottom:2rem;transition:.3s;}
-    .feature-item:hover{transform:translateY(-8px);background:#b2dfdb;}
-    .feature-icon{font-size:3rem;color:#004d40;margin-bottom:1rem;}
-    .feature-title{font-size:1.3rem;font-weight:600;margin-bottom:.5rem;}
-    .feature-desc{font-size:1rem;color:#555;}
+    .features{padding:3.5rem 0;background:#fff;}
+    .feature-item{background:#e0f2f1;padding:1.5rem;border-radius:10px;transition:transform .3s;height:100%;}
+    .feature-item:hover{transform:translateY(-6px);} 
+    .feature-icon{font-size:2.5rem;color:#004d40;margin-bottom:.75rem;}
 
     /* ===== NEWS ===== */
-    .news{padding:4rem 2rem;background:#f1f8f7;}
-    .news h2{text-align:center;font-weight:700;margin-bottom:3rem;}
-    .news-card{background:#fff;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.1);overflow:hidden;transition:.3s;}
-    .news-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.15);}
-    .news-img{width:100%;height:180px;object-fit:cover;}
-    .news-body{padding:1rem 1.5rem;}
-    .news-title{font-weight:700;font-size:1.2rem;margin-bottom:.5rem;color:#1e53ea;}
-    .news-excerpt{font-size:.95rem;color:#666;margin-bottom:1rem;}
-    .news-date{font-size:.85rem;color:#999;}
+    .feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+  border-radius: 16px;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.feature-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #e0f2f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #004d40;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
+}
+
+.feature-card:hover .feature-circle {
+  background: #b2dfdb;
+}
+
+    /* ===== QUICK FACTS ===== */
+    .quick-facts{padding:3.5rem 0;background:#f4f4f4;}
+    .fact-icon{font-size:2rem;color:var(--primary);}  
+
+    /* ===== TESTIMONI ===== */
+.testimonial-card {
+  border-radius: 20px;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+.testimonial-card:hover {
+  transform: scale(1.02);
+}
+.bg-pink {
+  background-color: #ec407a;
+}
+.swiper {
+  padding-bottom: 50px;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000;
+}
 
     /* ===== FOOTER ===== */
-    footer{background:#1e53ea;color:#ccc;padding:2rem;text-align:center;font-size:.9rem;}
+    footer{background:var(--primary);color:#f1f1f1;text-align:center;padding:1.5rem;font-size:.9rem;}
 
-    @media(min-width:768px){
-      .features-row{display:flex;justify-content:center;gap:2rem;}
-      .feature-item{flex:1 1 30%;margin-bottom:0;}
-      .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+    /* ===== RESPONSIVE ===== */
+    @media (max-width:576px){
+      .pnup-header h2{font-size:1.05rem;}
+      .pnup-header img{height:60px}
+      .hero{min-height:60vh;}
+      .video-card{min-width:75vw;}
     }
+    #loader {
+  position: fixed;
+  z-index: 9999;
+  background: #ffffff;
+  width: 100%;
+  height: 100%;
+  top: 0; left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader-text {
+  font-family: 'Catamaran';
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #1e53ea;
+  margin-bottom: 20px;
+}
+
+.loader-boxes {
+  display: flex;
+  gap: 10px;
+}
+
+.loader-boxes .box {
+  width: 12px;
+  height: 12px;
+  background: #1e53ea;
+  animation: bounce 0.6s infinite alternate;
+}
+
+.loader-boxes .box:nth-child(2) { animation-delay: 0.2s; }
+.loader-boxes .box:nth-child(3) { animation-delay: 0.4s; }
+.loader-boxes .box:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-15px); }
+}
+
+    /* ===== WA ===== */
+.wa-chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.wa-chat-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #25D366;
+  border-radius: 25px;
+  padding: 8px;
+  padding-right: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.wa-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.wa-chat-text {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+/* Saat hover */
+.wa-chat-wrapper:hover .wa-chat-text {
+  opacity: 1;
+  width: auto;
+}
+
+/* mitra */
+.mitra-logo {
+  height: 250px;
+  max-width: 300px;
+  object-fit: contain;
+  transition: transform 0.3s ease, opacity 0.3s;
+  opacity: 0.9;
+  padding: 30px; /* Tambahan ini kasih ruang supaya saat membesar tidak kepotong */
+}
+
+.mitra-logo:hover {
+  transform: scale(1.3);
+  opacity: 1;
+}
+.carousel-item,
+.carousel-item > div {
+  overflow: visible !important;
+}
+
   </style>
 </head>
 <body>
-
+  <!-- LOADER -->
+<div id="loader">
+  <div class="loader-text">Kuliah Seru, Prestasi Nomor 1</div>
+  <div class="loader-boxes">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
+</div>
+<div class="only-mobile d-block d-lg-none"></div>
+<div class="only-desktop d-none d-lg-block"></div>
 <!-- ===== TOP HEADER ===== -->
-<section class="pnup-header">
-  <div class="container-fluid d-flex justify-content-between align-items-center flex-wrap py-3 px-4">
-    <div class="d-flex align-items-center gap-3" style="margin-left:-10px;">
-      <a href="index.html"><img src="universitas-bung-hatta-logo.png" alt="Logo UBH" style="height:85px;object-fit:contain;"></a>
+<section class="pnup-header py-3">
+  <div class="container d-flex flex-wrap align-items-center justify-content-between">
+    <div class="d-flex align-items-center gap-3">
+      <a href="index.html"><img src="universitas-bung-hatta-logo.png" alt="UBH"></a>
       <div>
-        <h2 class="mb-0" style="font-size:1.6rem;">D4 PRODI Teknologi Rekayasa</h2>
-        <h2 class="mb-0" style="font-size:1.6rem;">Komputer Jaringan (TRKJ)</h2>
-        <small>Universitas Bung Hatta</small>
+        <h2>Program Studi Sarjana Terapan</h2>
+        <h2>Teknologi Rekayasa Komputer Jaringan (TRKJ)</h2>
+        <small>Universitas Bung Hatta</small>
       </div>
     </div>
-    <div class="mt-3 mt-md-0" style="margin-right:-10px;">
-      <a href="index.html"><img src="trkj.png" alt="Logo TRKJ" style="height:85px;object-fit:contain;"></a>
-    </div>
+    <a href="index.html"><img src="trkj.png" alt="TRKJ"></a>
   </div>
 </section>
 
 <!-- ===== NAVBAR ===== -->
-<nav class="navbar navbar-expand-lg navbar-custom shadow-sm border-bottom-0">
-  <div class="container-fluid active">
-    <a class="nav-link" href="index.html">Beranda</a>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-      <span class="navbar-toggler-icon" style="filter:invert(1);"></span>
+<nav class="navbar navbar-expand-lg navbar-custom shadow-sm border-bottom-0 sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-semibold" href="index.html">Beranda</a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="mainNavbar">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-3">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <!-- PROFIL -->
-        <li class="nav-item dropdown px-3">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Profil</a>
+        <li class="nav-item dropdown px-lg-2">
+          <a class="nav-link dropdown-toggle active-semibold" href="#" data-bs-toggle="dropdown">Profil</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="visi-misi.html">Visi Misi</a></li>
             <li><a class="dropdown-item" href="sejarah.html">Sejarah</a></li>
@@ -107,10 +367,8 @@
             <li><a class="dropdown-item" href="akreditasi.html">Akreditasi</a></li>
           </ul>
         </li>
-        <!-- BERITA -->
-        <li class="nav-item px-3"><a class="nav-link" href="berita.html">Berita</a></li>
         <!-- P&P -->
-        <li class="nav-item dropdown px-3">
+        <li class="nav-item dropdown px-lg-2">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Penelitian & Pengabdian</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="penelitian.html">Penelitian</a></li>
@@ -120,7 +378,7 @@
           </ul>
         </li>
         <!-- KEMAHASISWAAN -->
-        <li class="nav-item dropdown px-3">
+        <li class="nav-item dropdown px-lg-2">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Kemahasiswaan</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="kegiatan.html">Kegiatan</a></li>
@@ -129,7 +387,7 @@
           </ul>
         </li>
         <!-- PENGEMBANGAN -->
-        <li class="nav-item dropdown px-3">
+        <li class="nav-item dropdown px-lg-2">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pengembangan</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="pelatihan.html">Pelatihan / Workshop</a></li>
@@ -138,90 +396,389 @@
           </ul>
         </li>
         <!-- KERJASAMA -->
-        <li class="nav-item dropdown px-3">
+        <li class="nav-item dropdown px-lg-2">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Kerjasama</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="kerjasama-dalam-negeri.html">Dalam Negeri</a></li>
             <li><a class="dropdown-item" href="kerjasama-luar-negeri.html">Luar Negeri</a></li>
           </ul>
         </li>
-        <!-- FASILITAS -->
-        <li class="nav-item px-3"><a class="nav-link" href="fasilitas.html">Fasilitas</a></li>
-        <!-- KONTAK -->
-        <li class="nav-item px-3"><a class="nav-link" href="kontak.html">Kontak</a></li>
       </ul>
-      </form>
     </div>
   </div>
 </nav>
 
 <!-- ===== HERO ===== -->
-<section class="hero">
-  <div class="hero-text">
-    <h1>Teknologi Rekayasa Komputer Jaringan</h1>
-    <p>Membangun profesional jaringan masa depan dengan pengetahuan dan keterampilan terdepan.</p>
-    <a href="sejarah.html" class="btn-hero">Pelajari Lebih Lanjut</a>
+<section class="hero d-flex align-items-center text-white">
+  <div class="container text-center text-md-start">
+    <div class="hero-text animate__animated animate__fadeInUp">
+      <h1 class="display-4 fw-bold">Teknologi Rekayasa Komputer Jaringan</h1>
+      <p class="lead">Membangun profesional jaringan masa depan dengan pengetahuan dan keterampilan terdepan.</p>
+      <a href="sejarah.html" class="btn btn-hero">Pelajari Lebih Lanjut</a>
+    </div>
   </div>
 </section>
 
 <!-- ===== FEATURES ===== -->
-<section class="features container">
-  <h2>Keunggulan Prodi TRKJ</h2>
-  <div class="features-row">
-    <div class="feature-item">
-      <div class="feature-icon">💻</div>
-      <div class="feature-title">Pengajaran Modern</div>
-      <p class="feature-desc">Kurikulum terupdate dengan teknologi terkini di bidang jaringan komputer.</p>
-    </div>
-    <div class="feature-item">
-      <div class="feature-icon">🛠️</div>
-      <div class="feature-title">Laboratorium Lengkap</div>
-      <p class="feature-desc">Fasilitas praktikum yang mendukung pembelajaran dan riset mahasiswa.</p>
-    </div>
-    <div class="feature-item">
-      <div class="feature-icon">🌐</div>
-      <div class="feature-title">Kerja Sama Industri</div>
-      <p class="feature-desc">Kolaborasi dengan perusahaan jaringan terkemuka untuk magang dan penempatan kerja.</p>
+<section class="features py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-5">Keunggulan PRODI TRKJ</h2>
+    <div class="row g-4 justify-content-center">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card feature-card text-center border-0 h-100 shadow-sm p-4">
+          <div class="feature-circle mx-auto mb-3"><span>💻</span></div>
+          <h5 class="feature-title fw-semibold mb-2">Pengajaran Modern</h5>
+          <p class="feature-desc text-muted mb-0">Kurikulum terupdate dengan teknologi terkini di bidang jaringan komputer.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card feature-card text-center border-0 h-100 shadow-sm p-4">
+          <div class="feature-circle mx-auto mb-3"><span>🛠️</span></div>
+          <h5 class="feature-title fw-semibold mb-2">Laboratorium Lengkap</h5>
+          <p class="feature-desc text-muted mb-0">Fasilitas praktikum yang mendukung pembelajaran dan riset mahasiswa.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card feature-card text-center border-0 h-100 shadow-sm p-4">
+          <div class="feature-circle mx-auto mb-3"><span>🌐</span></div>
+          <h5 class="feature-title fw-semibold mb-2">Kerja Sama Industri</h5>
+          <p class="feature-desc text-muted mb-0">Kolaborasi dengan perusahaan jaringan terkemuka untuk magang dan penempatan kerja.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ===== NEWS ===== -->
-<section class="news container">
-  <h2>Berita Terbaru</h2>
-  <div class="news-grid">
-    <div class="news-card">
-      <img class="news-img" src="3.JPG" alt="Berita 1">
-      <div class="news-body">
-        <h3 class="news-title">Workshop Jaringan Komputer 2025</h3>
-        <p class="news-excerpt">Program pelatihan intensif untuk membekali mahasiswa dengan kemampuan praktis.</p>
-        <p class="news-date">5 Juni 2025</p>
+<section class="news">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-5">Berita Terbaru</h2>
+    <div class="row g-4">
+      <div class="col-12 col-md-4">
+        <div class="news-card card h-100">
+          <img src="3.JPG" class="card-img-top" alt="Berita 1" />
+          <div class="card-body">
+            <h5 class="news-title">Workshop Jaringan Komputer 2025</h5>
+            <p class="news-excerpt">Program pelatihan intensif untuk membekali mahasiswa dengan kemampuan praktis.</p>
+            <p class="news-date text-muted small">5 Juni 2025</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="news-card">
-      <img class="news-img" src="7.JPG" alt="Berita 2">
-      <div class="news-body">
-        <h3 class="news-title">Kerjasama dengan PT Teknologi Jaringan</h3>
-        <p class="news-excerpt">Membangun sinergi dalam pengembangan teknologi jaringan dan peluang kerja.</p>
-        <p class="news-date">28 Mei 2025</p>
+      <div class="col-12 col-md-4">
+        <div class="news-card card h-100">
+          <img src="7.JPG" class="card-img-top" alt="Berita 2" />
+          <div class="card-body">
+            <h5 class="news-title">Kerjasama dengan PT Teknologi Jaringan</h5>
+            <p class="news-excerpt">Membangun sinergi dalam pengembangan teknologi jaringan dan peluang kerja.</p>
+            <p class="news-date text-muted small">28 Mei 2025</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="news-card">
-      <img class="news-img" src="5.JPG" alt="Berita 3">
-      <div class="news-body">
-        <h3 class="news-title">Pengembangan Kurikulum 2025</h3>
-        <p class="news-excerpt">Pembaruan materi agar sesuai dengan perkembangan industri teknologi.</p>
-        <p class="news-date">15 Mei 2025</p>
+      <div class="col-12 col-md-4">
+        <div class="news-card card h-100">
+          <img src="5.JPG" class="card-img-top" alt="Berita 3" />
+          <div class="card-body">
+            <h5 class="news-title">Pengembangan Kurikulum 2025</h5>
+            <p class="news-excerpt">Pembaruan materi agar sesuai dengan perkembangan industri teknologi.</p>
+            <p class="news-date text-muted small">15 Mei 2025</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="news-card card h-100">
+          <img src="3.JPG" class="card-img-top" alt="Berita 1" />
+          <div class="card-body">
+            <h5 class="news-title">Workshop Jaringan Komputer 2025</h5>
+            <p class="news-excerpt">Program pelatihan intensif untuk membekali mahasiswa dengan kemampuan praktis.</p>
+            <p class="news-date text-muted small">5 Juni 2025</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="news-card card h-100">
+          <img src="3.JPG" class="card-img-top" alt="Berita 1" />
+          <div class="card-body">
+            <h5 class="news-title">Workshop Jaringan Komputer 2025</h5>
+            <p class="news-excerpt">Program pelatihan intensif untuk membekali mahasiswa dengan kemampuan praktis.</p>
+            <p class="news-date text-muted small">5 Juni 2025</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="news-card card h-100">
+          <img src="3.JPG" class="card-img-top" alt="Berita 1" />
+          <div class="card-body">
+            <h5 class="news-title">Workshop Jaringan Komputer 2025</h5>
+            <p class="news-excerpt">Program pelatihan intensif untuk membekali mahasiswa dengan kemampuan praktis.</p>
+            <p class="news-date text-muted small">5 Juni 2025</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
-<footer>
-  &copy; 2025 PRODI TRKJ — Universitas Bung Hatta, Padang.
-</footer>
+<!-- ===== QUICK FACTS ===== -->
+<section class="quick-facts text-center">
+  <div class="container">
+    <h2 class="fw-bold mb-4">Kenal lebih dekat PRODI TRKJ</h2>
+    <div class="row g-4">
+      <div class="col-6 col-lg-3">
+        <div class="fact-icon mb-2"><i class="bi bi-trophy"></i></div>
+        <h5 class="fw-bold">01</h5>
+        <p>Pertama di Pulau Sumatera</p>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="fact-icon mb-2"><i class="bi bi-mortarboard"></i></div>
+        <h5 class="fw-bold">3.5 Tahun</h5>
+        <p>*Masa Studi</p>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="fact-icon mb-2"><i class="bi bi-tools"></i></div>
+        <h5 class="fw-bold">70%</h5>
+        <p>Ilmu Terapan</p>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="fact-icon mb-2"><i class="bi bi-pc-display"></i></div>
+        <h5 class="fw-bold">2 Labor</h5>
+        <p>Jaringan & Embedded</p>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ===== TESTIMONI CAROUSEL ===== -->
+<section class="py-5 bg-light" id="testimoni">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-4">Apa Kata Mereka?</h2>
+
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Testimoni 1 -->
+        <div class="swiper-slide">
+          <div class="card testimonial-card bg-pink text-white text-center p-4">
+            <div class="quote-icon display-6">❝</div>
+            <p>Belajar di TRKJ sangat menyenangkan, karena banyak praktik langsung dan proyek nyata.</p>
+            <img src="9.JPG" class="rounded-circle border border-white mt-3" width="70" height="70" alt="">
+            <h5 class="mt-3 fw-bold text-white">Dina Maharani</h5>
+            <small class="text-white-50">Alumni TRKJ</small>
+          </div>
+        </div>
+
+        <!-- Testimoni 2 -->
+        <div class="swiper-slide">
+          <div class="card testimonial-card bg-success text-white text-center p-4">
+            <div class="quote-icon display-6">❝</div>
+            <p>TRKJ membekali saya skill jaringan yang dibutuhkan industri. Saya diterima magang di Telkom.</p>
+            <img src="9.JPG" class="rounded-circle border border-white mt-3" width="70" height="70" alt="">
+            <h5 class="mt-3 fw-bold text-white">Rizky Fadli</h5>
+            <small class="text-white-50">Mahasiswa TRKJ</small>
+          </div>
+        </div>
+
+        <!-- Testimoni 3 -->
+        <div class="swiper-slide">
+          <div class="card testimonial-card bg-primary text-white text-center p-4">
+            <div class="quote-icon display-6">❝</div>
+            <p>Kuliah di TRKJ sangat membuka wawasan saya tentang teknologi dan membentuk pola pikir sistematis.</p>
+            <img src="9.JPG" class="rounded-circle border border-white mt-3" width="70" height="70" alt="">
+            <h5 class="mt-3 fw-bold text-white">Amanda Putri</h5>
+            <small class="text-white-50">Magang Telkom</small>
+          </div>
+        </div>
+                <div class="swiper-slide">
+          <div class="card testimonial-card bg-primary text-white text-center p-4">
+            <div class="quote-icon display-6">❝</div>
+            <p>Kuliah di TRKJ sangat membuka wawasan saya tentang teknologi dan membentuk pola pikir sistematis.</p>
+            <img src="9.JPG" class="rounded-circle border border-white mt-3" width="70" height="70" alt="">
+            <h5 class="mt-3 fw-bold text-white">Amanda Putri</h5>
+            <small class="text-white-50">Magang Telkom</small>
+          </div>
+        </div>
+                <div class="swiper-slide">
+          <div class="card testimonial-card bg-primary text-white text-center p-4">
+            <div class="quote-icon display-6">❝</div>
+            <p>Kuliah di TRKJ sangat membuka wawasan saya tentang teknologi dan membentuk pola pikir sistematis.</p>
+            <img src="9.JPG" class="rounded-circle border border-white mt-3" width="70" height="70" alt="">
+            <h5 class="mt-3 fw-bold text-white">Amanda Putri</h5>
+            <small class="text-white-50">Magang Telkom</small>
+          </div>
+        </div>
+                <div class="swiper-slide">
+          <div class="card testimonial-card bg-primary text-white text-center p-4">
+            <div class="quote-icon display-6">❝</div>
+            <p>Kuliah di TRKJ sangat membuka wawasan saya tentang teknologi dan membentuk pola pikir sistematis.</p>
+            <img src="9.JPG" class="rounded-circle border border-white mt-3" width="70" height="70" alt="">
+            <h5 class="mt-3 fw-bold text-white">Amanda Putri</h5>
+            <small class="text-white-50">Magang Telkom</small>
+          </div>
+        </div>
+
+        <!-- Tambah slide lain jika perlu -->
+
+      </div>
+
+      <!-- Panah Navigasi -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+</section>
+
+<section class="mitra-section py-5 bg-light">
+  <div class="container text-center">
+    <h3 class="fw-bold mb-2">Mitra</h3>
+    <p class="text-muted mb-4">
+      Program Studi bermitra dengan berbagai instansi, baik dari pemerintahan, BUMN, maupun Asosiasi
+    </p>
+
+    <div id="carouselMitra" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500">
+      <div class="carousel-inner d-flex align-items-center">
+
+        <div class="carousel-item active">
+          <div class="d-flex justify-content-center gap-4 flex-wrap">
+            <img src="cement.png" alt="Kominfo" class="mitra-logo">
+            <img src="apjii.png" alt="Telkom" class="mitra-logo">
+            <img src="ptpn5.png" alt="Huawei" class="mitra-logo">
+            <img src="transmart.png" alt="BPPTIK" class="mitra-logo">
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="d-flex justify-content-center gap-4 flex-wrap">
+            <img src="ptpn5.png" alt="APJII" class="mitra-logo">
+            <img src="transmart.png" alt="MikroTik" class="mitra-logo">
+            <img src="cement.png" alt="BUMN" class="mitra-logo">
+            <img src="apjii.png" alt="Kominfo" class="mitra-logo">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===== VIDEO PROFIL SINGKAT ===== -->
+<section class="video-profil bg-light py-5">
+  <div class="container text-center">
+    <h2 class="fw-bold   mb-4">Profil Singkat Prodi TRKJ</h2>
+    <p class="text-muted mb-4">Simak video singkat tentang visi, kegiatan, dan keunggulan Program Studi Teknologi Rekayasa Komputer Jaringan.</p>
+    <div class="ratio ratio-16x9 mx-auto" style="max-width: 800px;">
+      <video controls poster="trkj.png" style="width: 100%; border-radius: 10px;">
+  <source src="trkj.mp4" type="video/mp4" />
+  Browser Anda tidak mendukung video.
+</video>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-dark text-light pt-5">
+  <div class="container">
+    <div class="row gy-4">
+      <!-- Alamat & Email -->
+      <div class="col-md-4">
+        <h5 class="fw-bold">ALAMAT KANTOR</h5>
+        <p>Jl. Gajah Mada No. 19, Olo, Nanggalo<br>Padang, Sumatera Barat 25143</p>
+        <p class="mb-1"><strong>Email</strong>: <a href="mailto:sekretariat@bunghatta.ac.id" class="text-light">sekretariat@bunghatta.ac.id</a></p>
+        <p><strong>WA</strong>: <a href="https://wa.me/6283862646529" class="text-light">+62 838-6264-6529</a></p>
+      </div>
+
+      <!-- Media Sosial -->
+      <div class="col-md-4 text-center">
+        <h5 class="fw-bold">Media Sosial</h5>
+        <div class="d-flex justify-content-center gap-3 mb-3">
+<!-- Blok Media Sosial -->
+<div style="display: flex; justify-content: center; gap: 15px; align-items: center; margin-top: 10px;">
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/trkj_ubh/" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="width: 32px; height: 32px;">
+  </a>
+
+  <!-- YouTube -->
+  <a href="https://www.youtube.com/@trkjbunghatta" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" style="width: 32px; height: 32px;">
+  </a>
+
+  <!-- TikTok -->
+  <a href="https://www.tiktok.com/@trkj_ubh" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" style="width: 32px; height: 32px;">
+  </a>
+</div>
+        </div>
+        <p>Terhubung dengan Prodi D4 Teknologi Rekayasa Komputer Jaringan melalui social media resmi kami</p>
+      </div>
+
+      <!-- Google Maps -->
+      <div class="col-md-4">
+<iframe 
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127594.7980951301!2d100.3626788!3d-0.9085115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b8b8f385d153%3A0xbd3bdd201ac0c40b!2sKampus%203%20Universitas%20Bung%20Hatta!5e0!3m2!1sid!2sid!4v1718800540897!5m2!1sid!2sid" 
+  width="100%" 
+  height="250" 
+  style="border:0; border-radius:10px;" 
+  allowfullscreen="" 
+  loading="lazy" 
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+      </div>
+    </div>
+    <hr class="mt-5" style="border-top: 1px solid #bbb;" />
+    <p class="text-center mb-0 pb-3">&copy; 2025 PRODI TRKJ — Universitas Bung Hatta, Padang.</p>
+  </div>
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  window.addEventListener("load", function () {
+    const loader = document.getElementById("loader");
+    loader.classList.add("fade-out");
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 800);
+  });
+</script>
+
+<style>
+  .fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+</style>
+<!-- WhatsApp Floating Button -->
+<div class="wa-chat-wrapper" onclick="window.open('https://wa.me/6283862646529', '_blank')">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="wa-icon">
+  <span class="wa-chat-text">Chat yuk</span>
+</div>
+</div>
+<script>
+  const swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      0: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      992: { slidesPerView: 3 }
+    }
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    
+    // Tambahkan class ke <body> sesuai perangkat
+    document.body.classList.add(isMobile ? "mode-mobile" : "mode-desktop");
+
+    // Contoh aksi berbeda untuk setiap mode (bisa dihapus nanti)
+    console.log("Mode Detected:", isMobile ? "Mobile" : "Desktop");
+
+    // Contoh: munculkan alert sekali saat load
+    // alert(isMobile ? "Selamat datang di versi Mobile!" : "Selamat datang di versi Laptop!");
+  });
+</script>
 </body>
 </html>
