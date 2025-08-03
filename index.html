@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PRODI TRKJ – Beranda</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRODI TRKJ Universitas Bung Hatta</title>
   <link rel="icon" type="image/png" href="universitas-bung-hatta-logo.png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
@@ -25,82 +25,10 @@
     body{font-family:'Aref Ruqaa';background:var(--bg-light);color:#333;}
 
     /* ===== HEADER ===== */
-    .pnup-header {
-      background: #00008B;
-      color: white;
-      padding: 1rem 0;
-    }
+    .pnup-header{background:var(--secondary);color:#fff;font-size:.95rem;line-height:1.3;}
+    .pnup-header img{height:75px}
+    .pnup-header h2{font-weight:300;font-size:1.35rem;margin:0}
 
-    .pnup-header .header-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: nowrap;
-      gap: 1rem;
-    }
-
-    .pnup-header img {
-      max-height: 80px;
-      height: auto;
-      width: auto;
-    }
-
-    .info-header {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: left;
-      white-space: nowrap;
-    }
-
-    .info-header h2 {
-      font-size: 1.3rem;
-      margin: 0;
-      line-height: 1.3;
-    }
-
-    .info-header small {
-      font-size: 0.95rem;
-    }
-
-    /* Cegah wrap di HP */
-    @media (max-width: 768px) {
-      .pnup-header .header-wrapper {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-      }
-
-      .pnup-header img {
-        max-height: 60px;
-      }
-
-      .info-header h2 {
-        font-size: 1.05rem;
-      }
-
-      .info-header small {
-        font-size: 0.85rem;
-      }
-    }
-    @media (max-width: 768px) {
-  .pnup-header .header-wrapper {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-
-  .pnup-header .header-wrapper > .d-flex {
-    flex-grow: 1;
-  }
-
-  .pnup-header img {
-    max-height: 50px;
-  }
-
-  .info-header h2 {
-    font-size: 1rem;
-  }
-}
     /* ===== NAVBAR ===== */
     .navbar-custom{background:var(--primary);}  
     .navbar-custom .nav-link{color:#fff;transition:color .3s;}
@@ -173,40 +101,17 @@
 }
 
 .hero {
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  color: white;
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  color: #fff;
-  padding-left: 5vw;
-  padding-right: 5vw;
 }
 
 .hero-text {
-  background: rgba(0, 0, 0, 0.55);
-  padding: 1.5rem 2rem;
-  border-radius: 20px;
-  max-width: 450px;
-  width: 100%;
-  text-align: left;
-  margin-left: 0;
-  margin-right: auto;
-}
-
-/* Media query agar di HP tetap ramping dan kekiri */
-@media (max-width: 767px) {
-  .hero {
-    padding-left: 5vw;
-    padding-right: 5vw;
-    justify-content: flex-start;
-  }
-
-  .hero-text {
-    max-width: 90%;
-    margin-left: 0;
-    margin-right: auto;
-    padding: 1.2rem 1.4rem;
-  }
+  max-width: 700px;
+  padding: 20px;
+  margin-top: -50px;
 }
 
 .btn-hero {
@@ -426,32 +331,15 @@
 <div class="only-mobile d-block d-lg-none"></div>
 <div class="only-desktop d-none d-lg-block"></div>
 <!-- ===== TOP HEADER ===== -->
-<!-- ===== TOP HEADER ===== -->
-<section class="pnup-header">
-  <div class="container">
-    <div class="header-wrapper">
-
-      <!-- Grup kiri: Logo dan teks -->
-      <div class="d-flex align-items-center gap-3">
-        <!-- Logo Kiri -->
-        <a href="index.html">
-          <img src="universitas-bung-hatta-logo.png" alt="UBH">
-        </a>
-
-        <!-- Teks Header -->
-        <div class="info-header">
-          <h2>Program Studi Sarjana Terapan</h2>
-          <h2>Teknologi Rekayasa Komputer Jaringan (TRKJ)</h2>
-          <small>Universitas Bung Hatta</small>
-        </div>
+<section class="pnup-header py-3">
+  <div class="container d-flex flex-wrap align-items-center justify-content-between">
+    <div class="d-flex align-items-center gap-3">
+      <a href="index.html"><img src="universitas-bung-hatta-logo.png" alt="UBH"></a>
+      <div>
+        <h2>Program Studi Sarjana Terapan</h2>
+        <h2>Teknologi Rekayasa Komputer Jaringan (TRKJ)</h2>
+        <small>Universitas Bung Hatta</small>
       </div>
-
-      <!-- Logo Kanan -->
-      <a href="index.html">
-        <img src="trkj.png" alt="TRKJ">
-      </a>
-    </div>
-  </div>
 </section>
 
 <!-- ===== NAVBAR ===== -->
@@ -518,8 +406,8 @@
 </nav>
 
 <!-- ===== HERO ===== -->
-<section class="hero">
-  <div class="container">
+<section class="hero d-flex align-items-center text-white">
+  <div class="container text-center text-md-start">
     <div class="hero-text animate__animated animate__fadeInUp">
       <h1 class="display-4 fw-bold">Teknologi Rekayasa Komputer Jaringan</h1>
       <p class="lead">Membangun profesional jaringan masa depan dengan pengetahuan dan keterampilan terdepan.</p>
@@ -565,9 +453,9 @@
     <div class="row g-4">
       <div class="col-12 col-md-4">
         <div class="news-card card h-100">
-          <img src="3.JPG" class="card-img-top" alt="Berita 1" />
+          <img src="unikl.png" class="card-img-top" alt="Berita 1" />
           <div class="card-body">
-            <h5 class="news-title">Workshop Jaringan Komputer 2025</h5>
+            <h5 class="news-title">PRODI TRKJ Perluas Kerjasama Internasional</h5>
             <p class="news-excerpt">Program pelatihan intensif untuk membekali mahasiswa dengan kemampuan praktis.</p>
             <p class="news-date text-muted small">5 Juni 2025</p>
           </div>
@@ -575,9 +463,9 @@
       </div>
       <div class="col-12 col-md-4">
         <div class="news-card card h-100">
-          <img src="7.JPG" class="card-img-top" alt="Berita 2" />
+          <img src="unikl.png" class="card-img-top" alt="Berita 2" />
           <div class="card-body">
-            <h5 class="news-title">Kerjasama dengan PT Teknologi Jaringan</h5>
+            <h5 class="news-title">PRODI TRKJ Perluas Kerjasama Internasional</h5>
             <p class="news-excerpt">Membangun sinergi dalam pengembangan teknologi jaringan dan peluang kerja.</p>
             <p class="news-date text-muted small">28 Mei 2025</p>
           </div>
@@ -585,9 +473,9 @@
       </div>
       <div class="col-12 col-md-4">
         <div class="news-card card h-100">
-          <img src="5.JPG" class="card-img-top" alt="Berita 3" />
+          <img src="unikl.png" class="card-img-top" alt="Berita 3" />
           <div class="card-body">
-            <h5 class="news-title">Pengembangan Kurikulum 2025</h5>
+            <h5 class="news-title">PRODI TRKJ Perluas Kerjasama Internasional</h5>
             <p class="news-excerpt">Pembaruan materi agar sesuai dengan perkembangan industri teknologi.</p>
             <p class="news-date text-muted small">15 Mei 2025</p>
           </div>
@@ -595,9 +483,9 @@
       </div>
       <div class="col-12 col-md-4">
         <div class="news-card card h-100">
-          <img src="3.JPG" class="card-img-top" alt="Berita 1" />
+          <img src="unikl.png" class="card-img-top" alt="Berita 1" />
           <div class="card-body">
-            <h5 class="news-title">Workshop Jaringan Komputer 2025</h5>
+            <h5 class="news-title">PRODI TRKJ Perluas Kerjasama Internasional</h5>
             <p class="news-excerpt">Program pelatihan intensif untuk membekali mahasiswa dengan kemampuan praktis.</p>
             <p class="news-date text-muted small">5 Juni 2025</p>
           </div>
@@ -605,9 +493,9 @@
       </div>
       <div class="col-12 col-md-4">
         <div class="news-card card h-100">
-          <img src="3.JPG" class="card-img-top" alt="Berita 1" />
+          <img src="unikl.png" class="card-img-top" alt="Berita 1" />
           <div class="card-body">
-            <h5 class="news-title">Workshop Jaringan Komputer 2025</h5>
+            <h5 class="news-title">PRODI TRKJ Perluas Kerjasama Internasional</h5>
             <p class="news-excerpt">Program pelatihan intensif untuk membekali mahasiswa dengan kemampuan praktis.</p>
             <p class="news-date text-muted small">5 Juni 2025</p>
           </div>
@@ -615,9 +503,9 @@
       </div>
       <div class="col-12 col-md-4">
         <div class="news-card card h-100">
-          <img src="3.JPG" class="card-img-top" alt="Berita 1" />
+          <img src="unikl.png" class="card-img-top" alt="Berita 1" />
           <div class="card-body">
-            <h5 class="news-title">Workshop Jaringan Komputer 2025</h5>
+            <h5 class="news-title">PRODI TRKJ Perluas Kerjasama Internasional</h5>
             <p class="news-excerpt">Program pelatihan intensif untuk membekali mahasiswa dengan kemampuan praktis.</p>
             <p class="news-date text-muted small">5 Juni 2025</p>
           </div>
@@ -777,8 +665,8 @@
       <div class="col-md-4">
         <h5 class="fw-bold">ALAMAT KANTOR</h5>
         <p>Jl. Gajah Mada No. 19, Olo, Nanggalo<br>Padang, Sumatera Barat 25143</p>
-        <p class="mb-1"><strong>Email</strong>: <a href="mailto:sekretariat@bunghatta.ac.id" class="text-light">sekretariat@bunghatta.ac.id</a></p>
-        <p><strong>WA</strong>: <a href="https://wa.me/6283862646529" class="text-light">+62 838-6264-6529</a></p>
+        <p class="mb-1"><strong>Email</strong>: <a href="mailto:proditrkj02@bunghatta.ac.id" class="text-light">sekretariat@bunghatta.ac.id</a></p>
+        <p><strong>WA</strong>: <a href="https://wa.me/6281372414556" class="text-light">+62 813-7241-4556</a></p>
       </div>
 
       <!-- Media Sosial -->

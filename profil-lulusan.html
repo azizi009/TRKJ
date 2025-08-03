@@ -1,132 +1,543 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Profil Lulusan – PRODI TRKJ</title>
-  <link rel="icon" type="image/png" href="universitas-bung-hatta-logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Lulusan PRODI TRKJ</title>
+  <link rel="icon" type="image/png" href="universitas-bung-hatta-logo.png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #f9f9f9;
+    :root {
+      --primary:#1e53ea;
+      --secondary:#00008B;
+      --bg-light:#f9f9f9;
+      --heading-clamp: clamp(1.8rem, 4vw+1rem, 3rem);
+    }
+    body{font-family:'Aref Ruqaa';background:var(--bg-light);color:#333;}
+
+    /* ===== HEADER ===== */
+    .pnup-header{background:var(--secondary);color:#fff;font-size:.95rem;line-height:1.3;}
+    .pnup-header img{height:75px}
+    .pnup-header h2{font-weight:300;font-size:1.35rem;margin:0}
+
+    /* ===== NAVBAR ===== */
+    .navbar-custom{background:var(--primary);}  
+    .navbar-custom .nav-link{color:#fff;transition:color .3s;}
+    .navbar-custom .nav-link:hover{color:#cfe3ff;}
+    .navbar-toggler-icon{filter:invert(1);}  
+
+    .pnup-header small {
+        color: #cfd8dc;
+        font-size: 1rem;
     }
 
-    .pnup-header{background:#00008B;color:#fff;}
-    .pnup-header h2 {font-weight:700;font-size:1.8rem;margin-bottom:0.25rem;}
-    .pnup-header small{color:#cfd8dc;font-size:1rem;}
+    /* ===== PROFIL LULUSAN CONTENT ===== */
+    .profil-lulusan {
+      padding: 4rem 0;
+      min-height: 70vh;
+    }
 
-    .navbar-custom{background:#1e53ea;font-size:.92rem;}
-    .navbar-custom .nav-link,.navbar-custom .navbar-brand,.navbar-custom .dropdown-toggle{color:#fff;}
-    .navbar-custom .nav-link:hover,.navbar-custom .navbar-brand:hover{color:#cfe3ff;}
-    .navbar-custom .nav-link.active,.navbar-custom .nav-link.show{background:#0080FF;color:#fff;}
-    @media (min-width:992px){.navbar-custom .dropdown:hover>.dropdown-menu{display:block;}}
+    .profil-lulusan .card {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
 
-    section.lulusan{padding:4rem 2rem;background:#fff;}
-    .lulusan h2{font-weight:700;margin-bottom:1.5rem;color:#00008B;text-align:center;}
-    .lulusan p{margin-bottom:1rem;}
+    .profil-lulusan .card-header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      padding: 1.5rem;
+    }
 
-    footer{background:#1e53ea;color:#ccc;padding:2rem;text-align:center;font-size:0.9rem;}
+    .profil-lulusan .card-body {
+      padding: 2rem;
+      background: white;
+    }
+
+    .profil-lulusan h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+
+    .profil-lulusan .profil-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #333;
+      text-align: justify;
+      margin-bottom: 1.5rem;
+    }
+
+    .profil-lulusan .profil-text:last-child {
+      margin-bottom: 0;
+    }
+
+    .profil-lulusan .karir-container {
+      position: relative;
+      padding: 2rem 0;
+    }
+
+    .profil-lulusan .karir-item {
+      margin-bottom: 1.5rem;
+      padding: 1.5rem;
+      background: #f8f9fa;
+      border-radius: 10px;
+      border-left: 4px solid var(--primary);
+      position: relative;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .profil-lulusan .karir-item:hover {
+      background: #e3f2fd;
+      transform: translateX(5px);
+      box-shadow: 0 4px 12px rgba(30, 83, 234, 0.15);
+    }
+
+    .profil-lulusan .karir-item::before {
+      content: '';
+      position: absolute;
+      left: -8px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--primary);
+      color: white;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px var(--primary);
+    }
+
+    .profil-lulusan .karir-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      min-width: 50px;
+      text-align: center;
+    }
+
+    .profil-lulusan .karir-content h5 {
+      margin: 0;
+      font-weight: 600;
+      color: var(--secondary);
+      font-size: 1.1rem;
+    }
+
+    .profil-lulusan .karir-content p {
+      margin: 0.5rem 0 0 0;
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* ===== FOOTER ===== */
+    footer{background:var(--primary);color:#f1f1f1;text-align:center;padding:1.5rem;font-size:.9rem;}
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width:576px){
+      .pnup-header h2{font-size:1.05rem;}
+      .pnup-header img{height:60px}
+      .profil-lulusan {
+        padding: 2rem 0;
+      }
+      .profil-lulusan h2 {
+        font-size: 2rem;
+      }
+      .profil-lulusan .card-body {
+        padding: 1.5rem;
+      }
+      .profil-lulusan .karir-item {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        flex-direction: column;
+        text-align: center;
+      }
+      .profil-lulusan .karir-icon {
+        font-size: 1.5rem;
+      }
+    }
+
+    #loader {
+      position: fixed;
+      z-index: 9999;
+      background: #ffffff;
+      width: 100%;
+      height: 100%;
+      top: 0; left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loader-text {
+      font-family: 'Catamaran';
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #1e53ea;
+      margin-bottom: 20px;
+    }
+
+    .loader-boxes {
+      display: flex;
+      gap: 10px;
+    }
+
+    .loader-boxes .box {
+      width: 12px;
+      height: 12px;
+      background: #1e53ea;
+      animation: bounce 0.6s infinite alternate;
+    }
+
+    .loader-boxes .box:nth-child(2) { animation-delay: 0.2s; }
+    .loader-boxes .box:nth-child(3) { animation-delay: 0.4s; }
+    .loader-boxes .box:nth-child(4) { animation-delay: 0.6s; }
+
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-15px); }
+    }
+
+    .fade-out {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    /* ===== WA ===== */
+    .wa-chat-wrapper {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #25D366;
+      border-radius: 25px;
+      padding: 8px;
+      padding-right: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .wa-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .wa-chat-text {
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      opacity: 0;
+      width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+
+    /* Saat hover */
+    .wa-chat-wrapper:hover .wa-chat-text {
+      opacity: 1;
+      width: auto;
+    }
+
+    /* Animation */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-text">Kuliah Seru, Prestasi Nomor 1</div>
+    <div class="loader-boxes">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </div>
 
-<!-- ======== TOP HEADER ======== -->
-<section class="pnup-header">
-  <div class="container-fluid d-flex justify-content-between align-items-center flex-wrap py-3 px-4">
-    <div class="d-flex align-items-center gap-3" style="margin-left:-10px;">
-      <a href="index.html"><img src="universitas-bung-hatta-logo.png" alt="Logo UBH" style="height:85px;object-fit:contain;"></a>
-      <div>
-        <h2 class="mb-0" style="font-size:1.6rem;">D4 PRODI Teknologi Rekayasa</h2>
-        <h2 class="mb-0" style="font-size:1.6rem;">Komputer Jaringan (TRKJ)</h2>
-        <small>Universitas Bung Hatta</small>
+  <div class="only-mobile d-block d-lg-none"></div>
+  <div class="only-desktop d-none d-lg-block"></div>
+
+  <!-- ===== TOP HEADER ===== -->
+  <section class="pnup-header py-3">
+    <div class="container d-flex flex-wrap align-items-center justify-content-between">
+      <div class="d-flex align-items-center gap-3">
+        <a href="index.html"><img src="universitas-bung-hatta-logo.png" alt="UBH"></a>
+        <div>
+          <h2>Program Studi Sarjana Terapan</h2>
+          <h2>Teknologi Rekayasa Komputer Jaringan (TRKJ)</h2>
+          <small>Universitas Bung Hatta</small>
+        </div>
       </div>
     </div>
-    <div class="mt-3 mt-md-0" style="margin-right:-10px;">
-      <a href="index.html"><img src="trkj.png" alt="Logo TRKJ" style="height:85px;object-fit:contain;"></a>
+  </section>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg navbar-custom shadow-sm border-bottom-0 sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="index.html">Beranda</a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <!-- PROFIL -->
+          <li class="nav-item dropdown px-lg-2">
+            <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Profil</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="visi-misi.html">Visi Misi</a></li>
+              <li><a class="dropdown-item" href="sejarah.html">Sejarah</a></li>
+              <li><a class="dropdown-item" href="struktur-kaprodi-dosen.html">Struktur Kaprodi & Dosen</a></li>
+              <li><a class="dropdown-item" href="struktur-organisasi.html">Struktur Himpunan Mahasiswa</a></li>
+              <li><a class="dropdown-item active" href="profil-lulusan.html">Profil Lulusan</a></li>
+              <li><a class="dropdown-item" href="akreditasi.html">Akreditasi</a></li>
+            </ul>
+          </li>
+          <!-- P&P -->
+          <li class="nav-item dropdown px-lg-2">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Penelitian & Pengabdian</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="penelitian.html">Penelitian</a></li>
+              <li><a class="dropdown-item" href="publikasi.html">Publikasi</a></li>
+              <li><a class="dropdown-item" href="pengabdian.html">Pengabdian Kepada Masyarakat</a></li>
+              <li><a class="dropdown-item" href="katalog-riset.html">Katalog Hasil Riset</a></li>
+            </ul>
+          </li>
+          <!-- KEMAHASISWAAN -->
+          <li class="nav-item dropdown px-lg-2">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Kemahasiswaan</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="kegiatan.html">Kegiatan</a></li>
+              <li><a class="dropdown-item" href="prestasi.html">Prestasi</a></li>
+              <li><a class="dropdown-item" href="sertifikasi.html">Sertifikasi Kompetensi</a></li>
+            </ul>
+          </li>
+          <!-- PENGEMBANGAN -->
+          <li class="nav-item dropdown px-lg-2">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pengembangan</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="pelatihan.html">Pelatihan / Workshop</a></li>
+              <li><a class="dropdown-item" href="magang-dosen.html">Magang Dosen</a></li>
+              <li><a class="dropdown-item" href="magang-mahasiswa.html">Magang Mahasiswa</a></li>
+            </ul>
+          </li>
+          <!-- KERJASAMA -->
+          <li class="nav-item dropdown px-lg-2">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Kerjasama</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="kerjasama-dalam-negeri.html">Dalam Negeri</a></li>
+              <li><a class="dropdown-item" href="kerjasama-luar-negeri.html">Luar Negeri</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</section>
+  </nav>
 
-<!-- ======== NAVBAR ======== -->
-<nav class="navbar navbar-expand-lg navbar-custom shadow-sm border-bottom-0">
-  <div class="container-fluid">
-    <a class="nav-link" href="index.html">Beranda</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"><span class="navbar-toggler-icon" style="filter:invert(1);"></span></button>
+  <!-- ======== PROFIL LULUSAN CONTENT ======== -->
+  <section class="profil-lulusan">
+    <div class="container">
+      <!-- PROFIL LULUSAN CARD -->
+      <div class="card fade-in-up">
+        <div class="card-header text-center">
+          <h2><i class="bi bi-person-badge"></i> Profil Lulusan</h2>
+        </div>
+        <div class="card-body">
+          <div class="profil-text">
+            Lulusan dari Program Studi Teknologi Rekayasa Komputer Jaringan (TRKJ) Universitas Bung Hatta memiliki kompetensi dalam merancang, mengelola, dan mengembangkan sistem jaringan komputer yang handal dan aman. Dengan kurikulum yang dirancang mengikuti perkembangan teknologi terkini, lulusan TRKJ siap menghadapi tantangan dunia kerja di era digital.
+          </div>
+          
+          <div class="profil-text">
+            Profil karir yang dapat ditekuni oleh lulusan TRKJ mencakup berbagai bidang teknologi informasi dan komunikasi, mulai dari posisi teknis hingga manajerial. Berikut adalah profil lulusan yang telah disiapkan:
+          </div>
 
-    <div class="collapse navbar-collapse" id="mainNavbar">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-3">
-        <li class="nav-item dropdown px-3"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Profil</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="visi-misi.html">Visi Misi</a></li>
-            <li><a class="dropdown-item" href="sejarah.html">Sejarah</a></li>
-            <li><a class="dropdown-item" href="struktur-kaprodi-dosen.html">Struktur Kaprodi & Dosen</a></li>
-            <li><a class="dropdown-item" href="struktur-organisasi.html">Struktur Himpunan Mahasiswa</a></li>
-            <li><a class="dropdown-item" href="profil-lulusan.html">Profil Lulusan</a></li>
-            <li><a class="dropdown-item" href="akreditasi.html">Akreditasi</a></li>
-          </ul>
-        </li>
-        <li class="nav-item px-3"><a class="nav-link" href="berita.html">Berita</a></li>
-        <li class="nav-item dropdown px-3"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Penelitian & Pengabdian</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="penelitian.html">Penelitian</a></li>
-            <li><a class="dropdown-item" href="publikasi.html">Publikasi</a></li>
-            <li><a class="dropdown-item" href="pengabdian.html">Pengabdian Kepada Masyarakat</a></li>
-            <li><a class="dropdown-item" href="katalog-riset.html">Katalog Hasil Riset</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown px-3"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Kemahasiswaan</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="kegiatan.html">Kegiatan</a></li>
-            <li><a class="dropdown-item" href="prestasi.html">Prestasi</a></li>
-            <li><a class="dropdown-item" href="sertifikasi.html">Sertifikasi Kompetensi</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown px-3"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pengembangan</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="pelatihan.html">Pelatihan / Workshop</a></li>
-            <li><a class="dropdown-item" href="magang-dosen.html">Magang Dosen</a></li>
-            <li><a class="dropdown-item" href="magang-mahasiswa.html">Magang Mahasiswa</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown px-3"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Kerjasama</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="kerjasama-dalam-negeri.html">Dalam Negeri</a></li>
-            <li><a class="dropdown-item" href="kerjasama-luar-negeri.html">Luar Negeri</a></li>
-          </ul>
-        </li>
-        <li class="nav-item px-3"><a class="nav-link" href="fasilitas.html">Fasilitas</a></li>
-        <li class="nav-item px-3"><a class="nav-link" href="kontak.html">Kontak</a></li>
-      </ul>
+          <div class="karir-container">
+            <div class="karir-item">
+              <div class="karir-icon">
+                <i class="fas fa-network-wired"></i>
+              </div>
+              <div class="karir-content">
+                <h5>Network Engineer</h5>
+                <p>Merancang, mengimplementasikan, dan memelihara infrastruktur jaringan komputer untuk berbagai skala organisasi.</p>
+              </div>
+            </div>
+            
+            <div class="karir-item">
+              <div class="karir-icon">
+                <i class="fas fa-server"></i>
+              </div>
+              <div class="karir-content">
+                <h5>System Administrator</h5>
+                <p>Mengelola dan memelihara sistem server, database, dan layanan IT untuk memastikan operasional yang optimal.</p>
+              </div>
+            </div>
+            
+            <div class="karir-item">
+              <div class="karir-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div class="karir-content">
+                <h5>Network Security Analyst</h5>
+                <p>Menganalisis keamanan jaringan, mengidentifikasi ancaman, dan mengimplementasikan solusi keamanan siber.</p>
+              </div>
+            </div>
+            
+            <div class="karir-item">
+              <div class="karir-icon">
+                <i class="fas fa-microchip"></i>
+              </div>
+              <div class="karir-content">
+                <h5>IoT Developer</h5>
+                <p>Mengembangkan aplikasi dan sistem Internet of Things untuk smart city, industri 4.0, dan teknologi terkini.</p>
+              </div>
+            </div>
+            
+            <div class="karir-item">
+              <div class="karir-icon">
+                <i class="fas fa-tools"></i>
+              </div>
+              <div class="karir-content">
+                <h5>IT Support Specialist</h5>
+                <p>Memberikan dukungan teknis, troubleshooting, dan maintenance untuk sistem teknologi informasi perusahaan.</p>
+              </div>
+            </div>
+            
+            <div class="karir-item">
+              <div class="karir-icon">
+                <i class="fas fa-chalkboard-teacher"></i>
+              </div>
+              <div class="karir-content">
+                <h5>Tenaga Pengajar (Instruktur)</h5>
+                <p>Mengajar dan melatih di bidang teknologi jaringan di lembaga pendidikan atau pusat pelatihan profesional.</p>
+              </div>
+            </div>
+            
+            <div class="karir-item">
+              <div class="karir-icon">
+                <i class="fas fa-rocket"></i>
+              </div>
+              <div class="karir-content">
+                <h5>Wirausahawan TIK</h5>
+                <p>Membangun startup atau bisnis di bidang teknologi informasi dan komunikasi dengan inovasi berkelanjutan.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-dark text-light pt-5">
+    <div class="container">
+      <div class="row gy-4">
+        <!-- Alamat & Email -->
+        <div class="col-md-4">
+          <h5 class="fw-bold">ALAMAT KANTOR</h5>
+          <p>Jl. Gajah Mada No. 19, Olo, Nanggalo<br>Padang, Sumatera Barat 25143</p>
+          <p class="mb-1"><strong>Email</strong>: <a href="mailto:proditrkj02@bunghatta.ac.id" class="text-light">sekretariat@bunghatta.ac.id</a></p>
+          <p><strong>WA</strong>: <a href="https://wa.me/6281372414556" class="text-light">+62 813-7241-4556</a></p>
+        </div>
+
+        <!-- Media Sosial -->
+        <div class="col-md-4 text-center">
+          <h5 class="fw-bold">Media Sosial</h5>
+          <div class="d-flex justify-content-center gap-3 mb-3">
+            <!-- Blok Media Sosial -->
+            <div style="display: flex; justify-content: center; gap: 15px; align-items: center; margin-top: 10px;">
+              <!-- Instagram -->
+              <a href="https://www.instagram.com/trkj_ubh/" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="width: 32px; height: 32px;">
+              </a>
+
+              <!-- YouTube -->
+              <a href="https://www.youtube.com/@trkjbunghatta" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" style="width: 32px; height: 32px;">
+              </a>
+
+              <!-- TikTok -->
+              <a href="https://www.tiktok.com/@trkj_ubh" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" style="width: 32px; height: 32px;">
+              </a>
+            </div>
+          </div>
+          <p>Terhubung dengan Prodi D4 Teknologi Rekayasa Komputer Jaringan melalui social media resmi kami</p>
+        </div>
+
+        <!-- Google Maps -->
+        <div class="col-md-4">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127594.7980951301!2d100.3626788!3d-0.9085115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b8b8f385d153%3A0xbd3bdd201ac0c40b!2sKampus%203%20Universitas%20Bung%20Hatta!5e0!3m2!1sid!2sid!4v1718800540897!5m2!1sid!2sid" 
+            width="100%" 
+            height="250" 
+            style="border:0; border-radius:10px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+      <hr class="mt-5" style="border-top: 1px solid #bbb;" />
+      <p class="text-center mb-0 pb-3">&copy; 2025 PRODI TRKJ — Universitas Bung Hatta, Padang.</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <div class="wa-chat-wrapper" onclick="window.open('https://wa.me/6283862646529', '_blank')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="wa-icon">
+    <span class="wa-chat-text">Chat yuk</span>
   </div>
-</nav>
 
-<!-- ======== PROFIL LULUSAN CONTENT ======== -->
-<section class="lulusan container">
-  <h2 class="fw-bold" style="font-size: 2.5rem;">Profil Lulusan</h2>
-  <p>Lulusan dari Program Studi Teknologi Rekayasa Komputer Jaringan (TRKJ) Universitas Bung Hatta memiliki kompetensi dalam merancang, mengelola, dan mengembangkan sistem jaringan komputer yang handal dan aman.</p>
-  <p>Profil lulusan mencakup:</p>
-  <ul>
-    <li>Network Engineer</li>
-    <li>System Administrator</li>
-    <li>Network Security Analyst</li>
-    <li>IoT Developer</li>
-    <li>IT Support Specialist</li>
-    <li>Tenaga Pengajar (Instruktur) di bidang Teknologi Jaringan</li>
-    <li>Wirausahawan di bidang Teknologi Informasi dan Komunikasi</li>
-  </ul>
-</section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    window.addEventListener("load", function () {
+      const loader = document.getElementById("loader");
+      loader.classList.add("fade-out");
+      setTimeout(() => {
+        loader.style.display = "none";
+      }, 800);
+    });
 
-<!-- ======== FOOTER ======== -->
-<footer>
-  &copy; 2025 PRODI TRKJ — Universitas Bung Hatta, Padang.
-</footer>
+    document.addEventListener("DOMContentLoaded", function () {
+      const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      
+      // Tambahkan class ke <body> sesuai perangkat
+      document.body.classList.add(isMobile ? "mode-mobile" : "mode-desktop");
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      // Contoh aksi berbeda untuk setiap mode (bisa dihapus nanti)
+      console.log("Mode Detected:", isMobile ? "Mobile" : "Desktop");
+    });
+  </script>
 </body>
 </html>

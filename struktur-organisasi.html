@@ -1,143 +1,642 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Struktur Organisasi – PRODI TRKJ</title>
-  <link rel="icon" type="image/png" href="universitas-bung-hatta-logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Struktur Organisasi PRODI TRKJ</title>
+  <link rel="icon" type="image/png" href="universitas-bung-hatta-logo.png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #f9f9f9;
+    :root {
+      --primary:#1e53ea;
+      --secondary:#00008B;
+      --bg-light:#f9f9f9;
+      --heading-clamp: clamp(1.8rem, 4vw+1rem, 3rem);
+    }
+    body{font-family:'Aref Ruqaa';background:var(--bg-light);color:#333;}
+
+    /* ===== HEADER ===== */
+    .pnup-header{background:var(--secondary);color:#fff;font-size:.95rem;line-height:1.3;}
+    .pnup-header img{height:75px}
+    .pnup-header h2{font-weight:300;font-size:1.35rem;margin:0}
+
+    /* ===== NAVBAR ===== */
+    .navbar-custom{background:var(--primary);}  
+    .navbar-custom .nav-link{color:#fff;transition:color .3s;}
+    .navbar-custom .nav-link:hover{color:#cfe3ff;}
+    .navbar-toggler-icon{filter:invert(1);}  
+
+    .pnup-header small {
+        color: #cfd8dc;
+        font-size: 1rem;
     }
 
-    .pnup-header {
-      background-color: #00008B;
-      color: #fff;
+    /* ===== STRUKTUR ORGANISASI CONTENT ===== */
+    .organisasi {
+      padding: 4rem 0;
+      min-height: 70vh;
     }
-    .pnup-header h2 {font-weight:700;font-size:1.8rem;margin-bottom:0.25rem;}
-    .pnup-header small{color:#cfd8dc;font-size:1rem;}
 
-    .navbar-custom{background:#1e53ea;font-size:0.92rem;}
-    .navbar-custom .nav-link,.navbar-custom .navbar-brand,.navbar-custom .dropdown-toggle{color:#fff;}
-    .navbar-custom .nav-link:hover,.navbar-custom .navbar-brand:hover{color:#cfe3ff;}
-    .navbar-custom .nav-link.active,.navbar-custom .nav-link.show{background:#0080FF;color:#fff;}
-    @media (min-width:992px){.navbar-custom .dropdown:hover>.dropdown-menu{display:block;}}
+    .organisasi .main-card {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      overflow: hidden;
+      background: white;
+    }
 
-    section.organisasi{padding:4rem 2rem;background:#fff;}
-    .organisasi h2{font-weight:700;margin-bottom:2rem;color:#00008B;text-align:center;}
-    .organigram img {
+    .organisasi .card-header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      padding: 1.5rem;
+    }
+
+    .organisasi h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+
+    /* ===== ORGANIGRAM SECTION ===== */
+    .organigram-container {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .organigram-image {
       max-width: 100%;
       height: auto;
-      display: block;
-      margin: 0 auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
     }
 
-    footer{background:#1e53ea;color:#ccc;padding:2rem;text-align:center;font-size:0.9rem;}
+    .organigram-image:hover {
+      transform: scale(1.02);
+    }
+
+    /* ===== ORGANIZATIONAL CHART ALTERNATIVE ===== */
+    .org-chart {
+      display: none; /* Akan ditampilkan jika gambar tidak tersedia */
+      padding: 2rem;
+    }
+
+    .org-level {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .org-level h4 {
+      color: var(--secondary);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .org-level h4::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+
+    .org-positions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .org-position {
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      border: 2px solid var(--primary);
+      border-radius: 15px;
+      padding: 1.5rem;
+      min-width: 200px;
+      max-width: 280px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .org-position::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .org-position:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(30, 83, 234, 0.2);
+    }
+
+    .org-position .position-title {
+      font-weight: 600;
+      color: var(--secondary);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .org-position .position-name {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 0;
+    }
+
+    /* ===== IMAGE MODAL ===== */
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      cursor: pointer;
+    }
+
+    .modal-content-img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 95%;
+      max-height: 95%;
+      border-radius: 10px;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10000;
+    }
+
+    .close-modal:hover {
+      color: #ccc;
+    }
+
+    /* ===== FOOTER ===== */
+    footer{background:var(--primary);color:#f1f1f1;text-align:center;padding:1.5rem;font-size:.9rem;}
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width:768px){
+      .org-positions {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .org-position {
+        min-width: 90%;
+        max-width: 90%;
+      }
+    }
+
+    @media (max-width:576px){
+      .pnup-header h2{font-size:1.05rem;}
+      .pnup-header img{height:60px}
+      .organisasi {
+        padding: 2rem 0;
+      }
+      .organisasi h2 {
+        font-size: 2rem;
+      }
+      .organigram-container {
+        padding: 1.5rem;
+      }
+      .org-chart {
+        padding: 1.5rem;
+      }
+    }
+
+    #loader {
+      position: fixed;
+      z-index: 9999;
+      background: #ffffff;
+      width: 100%;
+      height: 100%;
+      top: 0; left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loader-text {
+      font-family: 'Catamaran';
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #1e53ea;
+      margin-bottom: 20px;
+    }
+
+    .loader-boxes {
+      display: flex;
+      gap: 10px;
+    }
+
+    .loader-boxes .box {
+      width: 12px;
+      height: 12px;
+      background: #1e53ea;
+      animation: bounce 0.6s infinite alternate;
+    }
+
+    .loader-boxes .box:nth-child(2) { animation-delay: 0.2s; }
+    .loader-boxes .box:nth-child(3) { animation-delay: 0.4s; }
+    .loader-boxes .box:nth-child(4) { animation-delay: 0.6s; }
+
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-15px); }
+    }
+
+    .fade-out {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    /* ===== WA ===== */
+    .wa-chat-wrapper {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #25D366;
+      border-radius: 25px;
+      padding: 8px;
+      padding-right: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .wa-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .wa-chat-text {
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      opacity: 0;
+      width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+
+    /* Saat hover */
+    .wa-chat-wrapper:hover .wa-chat-text {
+      opacity: 1;
+      width: auto;
+    }
+
+    /* Animation */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-text">Kuliah Seru, Prestasi Nomor 1</div>
+    <div class="loader-boxes">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </div>
 
-<!-- ======== TOP HEADER ======== -->
-<section class="pnup-header">
-  <div class="container-fluid d-flex justify-content-between align-items-center flex-wrap py-3 px-4">
-    <div class="d-flex align-items-center gap-3" style="margin-left:-10px;">
-      <a href="index.html"><img src="universitas-bung-hatta-logo.png" alt="Logo UBH" style="height:85px;object-fit:contain;"></a>
-      <div>
-        <h2 class="mb-0" style="font-size:1.6rem;">D4 PRODI Teknologi Rekayasa</h2>
-        <h2 class="mb-0" style="font-size:1.6rem;">Komputer Jaringan (TRKJ)</h2>
-        <small>Universitas Bung Hatta</small>
+  <div class="only-mobile d-block d-lg-none"></div>
+  <div class="only-desktop d-none d-lg-block"></div>
+
+  <!-- ===== TOP HEADER ===== -->
+  <section class="pnup-header py-3">
+    <div class="container d-flex flex-wrap align-items-center justify-content-between">
+      <div class="d-flex align-items-center gap-3">
+        <a href="index.html"><img src="universitas-bung-hatta-logo.png" alt="UBH"></a>
+        <div>
+          <h2>Program Studi Sarjana Terapan</h2>
+          <h2>Teknologi Rekayasa Komputer Jaringan (TRKJ)</h2>
+          <small>Universitas Bung Hatta</small>
+        </div>
       </div>
     </div>
-    <div class="mt-3 mt-md-0" style="margin-right:-10px;">
-      <a href="index.html"><img src="trkj.png" alt="Logo TRKJ" style="height:85px;object-fit:contain;"></a>
+  </section>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg navbar-custom shadow-sm border-bottom-0 sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="index.html">Beranda</a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <!-- PROFIL -->
+          <li class="nav-item dropdown px-lg-2">
+            <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Profil</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="visi-misi.html">Visi Misi</a></li>
+              <li><a class="dropdown-item" href="sejarah.html">Sejarah</a></li>
+              <li><a class="dropdown-item" href="struktur-kaprodi-dosen.html">Struktur Kaprodi & Dosen</a></li>
+              <li><a class="dropdown-item active" href="struktur-organisasi.html">Struktur Himpunan Mahasiswa</a></li>
+              <li><a class="dropdown-item" href="profil-lulusan.html">Profil Lulusan</a></li>
+              <li><a class="dropdown-item" href="akreditasi.html">Akreditasi</a></li>
+            </ul>
+          </li>
+          <!-- P&P -->
+          <li class="nav-item dropdown px-lg-2">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Penelitian & Pengabdian</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="penelitian.html">Penelitian</a></li>
+              <li><a class="dropdown-item" href="publikasi.html">Publikasi</a></li>
+              <li><a class="dropdown-item" href="pengabdian.html">Pengabdian Kepada Masyarakat</a></li>
+              <li><a class="dropdown-item" href="katalog-riset.html">Katalog Hasil Riset</a></li>
+            </ul>
+          </li>
+          <!-- KEMAHASISWAAN -->
+          <li class="nav-item dropdown px-lg-2">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Kemahasiswaan</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="kegiatan.html">Kegiatan</a></li>
+              <li><a class="dropdown-item" href="prestasi.html">Prestasi</a></li>
+              <li><a class="dropdown-item" href="sertifikasi.html">Sertifikasi Kompetensi</a></li>
+            </ul>
+          </li>
+          <!-- PENGEMBANGAN -->
+          <li class="nav-item dropdown px-lg-2">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pengembangan</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="pelatihan.html">Pelatihan / Workshop</a></li>
+              <li><a class="dropdown-item" href="magang-dosen.html">Magang Dosen</a></li>
+              <li><a class="dropdown-item" href="magang-mahasiswa.html">Magang Mahasiswa</a></li>
+            </ul>
+          </li>
+          <!-- KERJASAMA -->
+          <li class="nav-item dropdown px-lg-2">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Kerjasama</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="kerjasama-dalam-negeri.html">Dalam Negeri</a></li>
+              <li><a class="dropdown-item" href="kerjasama-luar-negeri.html">Luar Negeri</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</section>
+  </nav>
 
-<!-- ======== NAVBAR ======== -->
-<nav class="navbar navbar-expand-lg navbar-custom shadow-sm border-bottom-0">
-  <div class="container-fluid">
-    <a class="nav-link" href="index.html">Beranda</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"><span class="navbar-toggler-icon" style="filter:invert(1);"></span></button>
+  <!-- ======== STRUKTUR ORGANISASI CONTENT ======== -->
+  <section class="organisasi">
+    <div class="container">
+      <!-- MAIN HEADER CARD -->
+      <div class="main-card fade-in-up">
+        <div class="card-header text-center">
+          <h2><i class="bi bi-diagram-3"></i> Struktur Himpunan Mahasiswa</h2>
+        </div>
+        
+        <!-- ORGANIGRAM IMAGE SECTION -->
+        <div class="organigram-container">
+          <img src="struktur.png" alt="Struktur Organisasi Himpunan Mahasiswa TRKJ" class="organigram-image" onclick="openModal(this.src)" onerror="showOrgChart()">
+          <p class="text-muted mt-3"><small><i class="bi bi-zoom-in"></i> Klik gambar untuk memperbesar</small></p>
+        </div>
 
-    <div class="collapse navbar-collapse" id="mainNavbar">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-3">
-        <li class="nav-item dropdown px-3"><a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Profil</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="visi-misi.html">Visi Misi</a></li>
-            <li><a class="dropdown-item" href="sejarah.html">Sejarah</a></li>
-            <li><a class="dropdown-item" href="struktur-kaprodi-dosen.html">Struktur Kaprodi & Dosen</a></li>
-            <li><a class="dropdown-item" href="struktur-organisasi.html">Struktur Himpunan Mahasiswa</a></li>
-            <li><a class="dropdown-item" href="profil-lulusan.html">Profil Lulusan</a></li>
-            <li><a class="dropdown-item" href="akreditasi.html">Akreditasi</a></li>
-          </ul>
-        </li>
-        <li class="nav-item px-3"><a class="nav-link" href="berita.html">Berita</a></li>
-        <li class="nav-item dropdown px-3"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Penelitian & Pengabdian</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="penelitian.html">Penelitian</a></li>
-            <li><a class="dropdown-item" href="publikasi.html">Publikasi</a></li>
-            <li><a class="dropdown-item" href="pengabdian.html">Pengabdian Kepada Masyarakat</a></li>
-            <li><a class="dropdown-item" href="katalog-riset.html">Katalog Hasil Riset</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown px-3"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Kemahasiswaan</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="kegiatan.html">Kegiatan</a></li>
-            <li><a class="dropdown-item" href="prestasi.html">Prestasi</a></li>
-            <li><a class="dropdown-item" href="sertifikasi.html">Sertifikasi Kompetensi</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown px-3"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pengembangan</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="pelatihan.html">Pelatihan / Workshop</a></li>
-            <li><a class="dropdown-item" href="magang-dosen.html">Magang Dosen</a></li>
-            <li><a class="dropdown-item" href="magang-mahasiswa.html">Magang Mahasiswa</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown px-3"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Kerjasama</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="kerjasama-dalam-negeri.html">Dalam Negeri</a></li>
-            <li><a class="dropdown-item" href="kerjasama-luar-negeri.html">Luar Negeri</a></li>
-          </ul>
-        </li>
-            <li class="nav-item px-3"><a class="nav-link" href="fasilitas.html">Fasilitas</a></li>
-            <li class="nav-item px-3"><a class="nav-link" href="kontak.html">Kontak</a></li>
-      </ul>
+        <!-- ALTERNATIVE ORG CHART (Jika gambar tidak tersedia) -->
+        <div class="org-chart" id="orgChart">
+          <!-- TINGKAT 1: PIMPINAN -->
+          <div class="org-level">
+            <h4><i class="bi bi-person-fill"></i> Pimpinan Himpunan</h4>
+            <div class="org-positions">
+              <div class="org-position">
+                <div class="position-title">Ketua Himpunan</div>
+                <div class="position-name">Muhammad Arif Hidayat</div>
+              </div>
+              <div class="org-position">
+                <div class="position-title">Wakil Ketua</div>
+                <div class="position-name">Sari Dewi Lestari</div>
+              </div>
+              <div class="org-position">
+                <div class="position-title">Sekretaris</div>
+                <div class="position-name">Ahmad Fauzi Rahman</div>
+              </div>
+              <div class="org-position">
+                <div class="position-title">Bendahara</div>
+                <div class="position-name">Rina Kartika Sari</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TINGKAT 2: DEPARTEMEN -->
+          <div class="org-level">
+            <h4><i class="bi bi-gear-fill"></i> Departemen</h4>
+            <div class="org-positions">
+              <div class="org-position">
+                <div class="position-title">Kepala Dept. Akademik</div>
+                <div class="position-name">Dedi Kurniawan</div>
+              </div>
+              <div class="org-position">
+                <div class="position-title">Kepala Dept. Minat & Bakat</div>
+                <div class="position-name">Maya Anggraini</div>
+              </div>
+              <div class="org-position">
+                <div class="position-title">Kepala Dept. Kewirausahaan</div>
+                <div class="position-name">Rizki Pratama</div>
+              </div>
+              <div class="org-position">
+                <div class="position-title">Kepala Dept. Hubungan Luar</div>
+                <div class="position-name">Fitri Handayani</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TINGKAT 3: KOORDINATOR -->
+          <div class="org-level">
+            <h4><i class="bi bi-people-fill"></i> Tim Koordinator</h4>
+            <div class="org-positions">
+              <div class="org-position">
+                <div class="position-title">Koordinator Acara</div>
+                <div class="position-name">Budi Santoso</div>
+              </div>
+              <div class="org-position">
+                <div class="position-title">Koordinator Media</div>
+                <div class="position-name">Lina Marlina</div>
+              </div>
+              <div class="org-position">
+                <div class="position-title">Koordinator Dana & Usaha</div>
+                <div class="position-name">Agus Setiawan</div>
+              </div>
+              <div class="org-position">
+                <div class="position-title">Koordinator Hubmas</div>
+                <div class="position-name">Dewi Sartika</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- IMAGE MODAL -->
+  <div id="imageModal" class="image-modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content-img" id="modalImg">
   </div>
-</nav>
 
-<!-- ======== STRUKTUR ORGANISASI CONTENT ======== -->
-<section class="organisasi container">
-  <h2 class="fw-bold" style="font-size: 2.5rem;"></h2>
-  <div class="organigram">
-    <!-- Gambar struktur organisasi -->
-    <img src="struktur.png" alt="Struktur Organisasi TRKJ">
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-dark text-light pt-5">
+    <div class="container">
+      <div class="row gy-4">
+        <!-- Alamat & Email -->
+        <div class="col-md-4">
+          <h5 class="fw-bold">ALAMAT KANTOR</h5>
+          <p>Jl. Gajah Mada No. 19, Olo, Nanggalo<br>Padang, Sumatera Barat 25143</p>
+          <p class="mb-1"><strong>Email</strong>: <a href="mailto:proditrkj02@bunghatta.ac.id" class="text-light">sekretariat@bunghatta.ac.id</a></p>
+          <p><strong>WA</strong>: <a href="https://wa.me/6281372414556" class="text-light">+62 813-7241-4556</a></p>
+        </div>
+
+        <!-- Media Sosial -->
+        <div class="col-md-4 text-center">
+          <h5 class="fw-bold">Media Sosial</h5>
+          <div class="d-flex justify-content-center gap-3 mb-3">
+            <!-- Blok Media Sosial -->
+            <div style="display: flex; justify-content: center; gap: 15px; align-items: center; margin-top: 10px;">
+              <!-- Instagram -->
+              <a href="https://www.instagram.com/trkj_ubh/" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="width: 32px; height: 32px;">
+              </a>
+
+              <!-- YouTube -->
+              <a href="https://www.youtube.com/@trkjbunghatta" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" style="width: 32px; height: 32px;">
+              </a>
+
+              <!-- TikTok -->
+              <a href="https://www.tiktok.com/@trkj_ubh" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" style="width: 32px; height: 32px;">
+              </a>
+            </div>
+          </div>
+          <p>Terhubung dengan Prodi D4 Teknologi Rekayasa Komputer Jaringan melalui social media resmi kami</p>
+        </div>
+
+        <!-- Google Maps -->
+        <div class="col-md-4">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127594.7980951301!2d100.3626788!3d-0.9085115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b8b8f385d153%3A0xbd3bdd201ac0c40b!2sKampus%203%20Universitas%20Bung%20Hatta!5e0!3m2!1sid!2sid!4v1718800540897!5m2!1sid!2sid" 
+            width="100%" 
+            height="250" 
+            style="border:0; border-radius:10px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+      <hr class="mt-5" style="border-top: 1px solid #bbb;" />
+      <p class="text-center mb-0 pb-3">&copy; 2025 PRODI TRKJ — Universitas Bung Hatta, Padang.</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <div class="wa-chat-wrapper" onclick="window.open('https://wa.me/6283862646529', '_blank')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="wa-icon">
+    <span class="wa-chat-text">Chat yuk</span>
   </div>
-  <!-- Atau jika belum ada gambar, gunakan daftar -->
-  <!--
-  <ul>
-    <li><strong>Kaprodi:</strong> Dr. Nama Kaprodi</li>
-    <li><strong>Sekretaris Prodi:</strong> Nama Sekretaris</li>
-    <li><strong>Koordinator Akademik:</strong> Nama Koordinator</li>
-    <li><strong>Koordinator Laboratorium:</strong> Nama Koordinator Lab</li>
-    <li><strong>Staf Administrasi:</strong> Nama Staf</li>
-  </ul>
-  -->
-</section>
 
-<!-- ======== FOOTER ======== -->
-<footer>
-  &copy; 2025 PRODI TRKJ — Universitas Bung Hatta, Padang.
-</footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    window.addEventListener("load", function () {
+      const loader = document.getElementById("loader");
+      loader.classList.add("fade-out");
+      setTimeout(() => {
+        loader.style.display = "none";
+      }, 800);
+    });
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      
+      // Tambahkan class ke <body> sesuai perangkat
+      document.body.classList.add(isMobile ? "mode-mobile" : "mode-desktop");
+
+      // Contoh aksi berbeda untuk setiap mode (bisa dihapus nanti)
+      console.log("Mode Detected:", isMobile ? "Mobile" : "Desktop");
+    });
+
+    // Modal functionality
+    function openModal(src) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modal.style.display = 'block';
+      modalImg.src = src;
+    }
+
+    // Close modal
+    document.addEventListener('click', function(e) {
+      const modal = document.getElementById('imageModal');
+      if (e.target === modal || e.target.classList.contains('close-modal')) {
+        modal.style.display = 'none';
+      }
+    });
+
+    // Show org chart if image fails to load
+    function showOrgChart() {
+      document.querySelector('.organigram-container').style.display = 'none';
+      document.getElementById('orgChart').style.display = 'block';
+    }
+
+    // ESC key to close modal
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.getElementById('imageModal').style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
