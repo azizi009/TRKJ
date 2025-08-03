@@ -2,182 +2,401 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Magang Mahasiswa – PRODI TRKJ</title>
   <link rel="icon" type="image/png" href="universitas-bung-hatta-logo.png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <style>
+    :root {
+      --primary: #1e53ea;
+      --secondary: #00008B;
+      --bg-light: #f9f9f9;
+    }
     body {
-      font-family: 'Poppins', sans-serif;
-      background: #f9f9f9;
+      font-family: 'Aref Ruqaa', serif;
+      background: var(--bg-light);
       color: #333;
-      line-height: 1.6;
     }
-    .pnup-header { background: #00008B; color: #fff; }
-    .pnup-header h2 { font-weight: 700; font-size: 1.8rem; margin-bottom: 0.25rem; }
-    .pnup-header small { color: #cfd8dc; font-size: 1rem; }
 
-    .navbar-custom { background: #1e53ea; font-size: 0.92rem; }
+    /* ===== HEADER ===== */
+    .pnup-header {
+      background: var(--secondary);
+      color: #fff;
+      font-size: .95rem;
+      line-height: 1.3;
+    }
+    .pnup-header img {
+      height: 75px;
+    }
+    .pnup-header h2 {
+      font-weight: 300;
+      font-size: 1.35rem;
+      margin: 0;
+    }
+    .pnup-header small {
+      color: #cfd8dc;
+      font-size: 1rem;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar-custom {
+      background: var(--primary);
+    }
     .navbar-custom .nav-link,
-    .navbar-custom .navbar-brand,
-    .navbar-custom .dropdown-toggle { color: #fff; }
+    .navbar-custom .navbar-brand {
+      color: #fff;
+      transition: color .3s;
+      font-family: 'Aref Ruqaa', serif;
+    }
     .navbar-custom .nav-link:hover,
-    .navbar-custom .navbar-brand:hover { color: #cfe3ff; }
-    .navbar-custom .nav-link.active,
-    .navbar-custom .nav-link.show { background: #0080FF; color: #fff; }
-    @media (min-width:992px) {
-      .navbar-custom .dropdown:hover > .dropdown-menu { display: block; }
+    .navbar-custom .navbar-brand:hover {
+      color: #cfe3ff;
+    }
+    .navbar-toggler-icon {
+      filter: invert(1);
     }
 
-    .content {
-      max-width: 1000px;
-      margin: 3rem auto;
-      padding: 0 1rem;
+    /* ===== MAGANG MAHASISWA CONTENT ===== */
+    .content-section {
+      padding: 4rem 0;
+      min-height: 70vh;
     }
-    h1 {
-      font-weight: 700;
-      color: #00008B;
+    .content-section .card {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       margin-bottom: 2rem;
-      text-align: center;
+      overflow: hidden;
     }
-    .research-list {
-      display: grid;
-      gap: 1.75rem;
-    }
-    .research-item {
-      background: white;
+    .content-section .card-header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
       padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 6px 18px rgb(0 0 0 / 0.1);
     }
-    .research-item h3 {
-      margin: 0 0 0.5rem;
+    .content-section .card-body {
+      padding: 2rem;
+      background: white;
+    }
+    .content-section h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+    .magang-mahasiswa-item {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: #f8f9fa;
+      border-radius: 10px;
+      border-left: 4px solid var(--primary);
+      transition: all 0.3s ease;
+    }
+    .magang-mahasiswa-item:last-child {
+      margin-bottom: 0;
+    }
+    .magang-mahasiswa-item:hover {
+      background: #e3f2fd;
+      transform: translateX(5px);
+    }
+    .magang-mahasiswa-item h3 {
+      font-family: 'Aref Ruqaa', serif;
+      font-size: 1.4rem;
       font-weight: 700;
-      font-size: 1.25rem;
-      color: #1e53ea;
+      color: var(--secondary);
+      margin: 0 0 0.75rem 0;
     }
-    .research-item p {
-      margin: 0.25rem 0;
-      font-size: 0.95rem;
-      color: #555;
+    .magang-mahasiswa-item .meta-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      margin-bottom: 1rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      color: #6c757d;
+    }
+    .magang-mahasiswa-item p {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      text-align: justify;
     }
 
-    footer {
+    /* ===== LOADER ===== */
+    #loader {
+      position: fixed;
+      z-index: 9999;
+      background: #ffffff;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .loader-text {
+      font-family: 'Catamaran', sans-serif;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #1e53ea;
+      margin-bottom: 20px;
+    }
+    .loader-boxes {
+      display: flex;
+      gap: 10px;
+    }
+    .loader-boxes .box {
+      width: 12px;
+      height: 12px;
       background: #1e53ea;
-      color: #ccc;
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.9rem;
+      animation: bounce 0.6s infinite alternate;
+    }
+    .loader-boxes .box:nth-child(2) { animation-delay: 0.2s; }
+    .loader-boxes .box:nth-child(3) { animation-delay: 0.4s; }
+    .loader-boxes .box:nth-child(4) { animation-delay: 0.6s; }
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-15px); }
+    }
+    .fade-out {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    /* ===== WHATSAPP BUTTON ===== */
+    .wa-chat-wrapper {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #25D366;
+      border-radius: 25px;
+      padding: 8px 12px 8px 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+    .wa-icon {
+      width: 40px;
+      height: 40px;
+    }
+    .wa-chat-text {
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      opacity: 0;
+      width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+    }
+    .wa-chat-wrapper:hover .wa-chat-text {
+      opacity: 1;
+      width: auto;
+    }
+
+    /* ===== ANIMATION ===== */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 576px) {
+      .pnup-header h2 { font-size: 1.05rem; }
+      .pnup-header img { height: 60px; }
+      .content-section { padding: 2rem 0; }
+      .content-section h2 { font-size: 2rem; }
+      .content-section .card-body { padding: 1.5rem; }
+      .magang-mahasiswa-item {
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
     }
   </style>
 </head>
 <body>
 
-<section class="pnup-header">
-  <div class="container-fluid d-flex justify-content-between align-items-center flex-wrap py-3 px-4">
-    <div class="d-flex align-items-center gap-3" style="margin-left:-10px;">
-      <a href="index.html"><img src="universitas-bung-hatta-logo.png" alt="Logo UBH" style="height:85px;object-fit:contain;"></a>
-      <div>
-        <h2 class="mb-0" style="font-size:1.6rem;">D4 PRODI Teknologi Rekayasa</h2>
-        <h2 class="mb-0" style="font-size:1.6rem;">Komputer Jaringan (TRKJ)</h2>
-        <small>Universitas Bung Hatta</small>
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-text">Kuliah Seru, Prestasi No. 1</div>
+    <div class="loader-boxes">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <section class="pnup-header py-3">
+    <div class="container d-flex flex-wrap align-items-center justify-content-between">
+      <div class="d-flex align-items-center gap-3">
+        <a href="index.html"><img src="universitas-bung-hatta-logo.png" alt="UBH"></a>
+        <div>
+          <h2>Program Studi Sarjana Terapan</h2>
+          <h2>Teknologi Rekayasa Komputer Jaringan (TRKJ)</h2>
+          <small>Universitas Bung Hatta</small>
+        </div>
       </div>
     </div>
-    <div class="mt-3 mt-md-0" style="margin-right:-10px;">
-      <a href="index.html"><img src="trkj.png" alt="Logo TRKJ" style="height:85px;object-fit:contain;"></a>
+  </section>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-custom shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="index.html">Beranda</a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown px-lg-2">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Profil</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="visi-misi.html">Visi Misi</a></li>
+              <li><a class="dropdown-item" href="sejarah.html">Sejarah</a></li>
+              <li><a class="dropdown-item" href="struktur-kaprodi-dosen.html">Struktur Kaprodi & Dosen</a></li>
+              <li><a class="dropdown-item" href="struktur-organisasi.html">Struktur Himpunan Mahasiswa</a></li>
+              <li><a class="dropdown-item" href="profil-lulusan.html">Profil Lulusan</a></li>
+              <li><a class="dropdown-item" href="akreditasi.html">Akreditasi</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown px-lg-2">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Penelitian & Pengabdian</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="penelitian.html">Penelitian</a></li>
+              <li><a class="dropdown-item" href="publikasi.html">Publikasi</a></li>
+              <li><a class="dropdown-item" href="pengabdian.html">Pengabdian Kepada Masyarakat</a></li>
+              <li><a class="dropdown-item" href="katalog-riset.html">Katalog Hasil Riset</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown px-lg-2">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Kemahasiswaan</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="kegiatan.html">Kegiatan</a></li>
+              <li><a class="dropdown-item" href="prestasi.html">Prestasi</a></li>
+              <li><a class="dropdown-item" href="sertifikasi.html">Sertifikasi Kompetensi</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown px-lg-2">
+            <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Pengembangan</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="pelatihan.html">Pelatihan / Workshop</a></li>
+              <li><a class="dropdown-item" href="magang-dosen.html">Magang Dosen</a></li>
+              <li><a class="dropdown-item active" href="magang-mahasiswa.html">Magang Mahasiswa</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown px-lg-2">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Kerjasama</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="kerjasama-dalam-negeri.html">Dalam Negeri</a></li>
+              <li><a class="dropdown-item" href="kerjasama-luar-negeri.html">Luar Negeri</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
+
+  <!-- ======== MAGANG MAHASISWA CONTENT ======== -->
+  <section class="content-section">
+    <div class="container">
+      <div class="card fade-in-up">
+        <div class="card-header text-center">
+          <h2><i class="bi bi-person-fill"></i> Program Magang Mahasiswa</h2>
+        </div>
+        <div class="card-body">
+          <div class="magang-mahasiswa-item">
+            <h3>Magang di PT Telekomunikasi Indonesia (Telkom)</h3>
+            <div class="meta-info">
+              <span><i class="bi bi-person-fill me-2"></i><strong>Peserta:</strong> Mahasiswa Semester 7</span>
+              <span><i class="bi bi-calendar-event-fill me-2"></i><strong>Tahun:</strong> 2024</span>
+            </div>
+            <p>Program magang untuk mahasiswa TRKJ dalam bidang infrastruktur jaringan dan monitoring sistem, dilaksanakan di berbagai kantor regional Telkom.</p>
+          </div>
+          <div class="magang-mahasiswa-item">
+            <h3>Magang di PT Len Industri</h3>
+            <div class="meta-info">
+              <span><i class="bi bi-person-fill me-2"></i><strong>Peserta:</strong> Mahasiswa TRKJ</span>
+              <span><i class="bi bi-calendar-event-fill me-2"></i><strong>Tahun:</strong> 2023</span>
+            </div>
+            <p>Fokus pada pengembangan dan integrasi sistem kontrol industri serta pengalaman kerja lapangan dalam proyek berskala nasional.</p>
+          </div>
+          <div class="magang-mahasiswa-item">
+            <h3>Magang Proyek Smart City di Diskominfo Kota Padang</h3>
+            <div class="meta-info">
+              <span><i class="bi bi-person-fill me-2"></i><strong>Peserta:</strong> Mahasiswa TRKJ</span>
+              <span><i class="bi bi-calendar-event-fill me-2"></i><strong>Tahun:</strong> 2025</span>
+            </div>
+            <p>Terlibat langsung dalam pengembangan dashboard Smart City, termasuk sistem monitoring CCTV, IoT untuk layanan publik, dan integrasi data.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-light pt-5">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-md-4">
+          <h5 class="fw-bold">ALAMAT KANTOR</h5>
+          <p>Jl. Gajah Mada No. 19, Olo, Nanggalo<br>Padang, Sumatera Barat 25143</p>
+          <p class="mb-1"><strong>Email</strong>: <a href="mailto:proditrkj02@bunghatta.ac.id" class="text-light">sekretariat@bunghatta.ac.id</a></p>
+          <p><strong>WA</strong>: <a href="https://wa.me/6281372414556" class="text-light">+62 813-7241-4556</a></p>
+        </div>
+        <div class="col-md-4 text-center">
+          <h5 class="fw-bold">Media Sosial</h5>
+          <div class="d-flex justify-content-center gap-3 mb-3">
+            <div style="display: flex; justify-content: center; gap: 15px; align-items: center; margin-top: 10px;">
+              <a href="https://www.instagram.com/trkj_ubh/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="width: 32px; height: 32px;"></a>
+              <a href="https://www.youtube.com/@trkjbunghatta" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" style="width: 32px; height: 32px;"></a>
+              <a href="https://www.tiktok.com/@trkj_ubh" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" style="width: 32px; height: 32px;"></a>
+            </div>
+          </div>
+          <p>Terhubung dengan Prodi D4 Teknologi Rekayasa Komputer Jaringan melalui media sosial resmi kami</p>
+        </div>
+        <div class="col-md-4">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127594.7980951301!2d100.3626788!3d-0.9085115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b8b8f385d153%3A0xbd3bdd201ac0c40b!2sKampus%203%20Universitas%20Bung%20Hatta!5e0!3m2!1sid!2sid!4v1718800540897!5m2!1sid!2sid" width="100%" height="250" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <hr class="mt-5" style="border-top: 1px solid #bbb;" />
+      <p class="text-center mb-0 pb-3">© 2025 PRODI TRKJ — Universitas Bung Hatta, Padang.</p>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP BUTTON -->
+  <div class="wa-chat-wrapper" onclick="window.open('https://wa.me/6283862646529', '_blank')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="wa-icon">
+    <span class="wa-chat-text">Chat yuk</span>
   </div>
-</section>
 
-<nav class="navbar navbar-expand-lg navbar-custom shadow-sm border-bottom-0">
-  <div class="container-fluid">
-    <a class="nav-link" href="index.html">Beranda</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-      <span class="navbar-toggler-icon" style="filter:invert(1);"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="mainNavbar">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-3">
-        <li class="nav-item dropdown px-3">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Profil</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="visi-misi.html">Visi Misi</a></li>
-            <li><a class="dropdown-item" href="sejarah.html">Sejarah</a></li>
-            <li><a class="dropdown-item" href="struktur-kaprodi-dosen.html">Struktur Kaprodi & Dosen</a></li>
-            <li><a class="dropdown-item" href="struktur-organisasi.html">Struktur Himpunan Mahasiswa</a></li>
-            <li><a class="dropdown-item" href="profil-lulusan.html">Profil Lulusan</a></li>
-            <li><a class="dropdown-item" href="akreditasi.html">Akreditasi</a></li>
-          </ul>
-        </li>
-        <li class="nav-item px-3"><a class="nav-link" href="berita.html">Berita</a></li>
-        <li class="nav-item dropdown px-3">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Penelitian & Pengabdian</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="penelitian.html">Penelitian</a></li>
-            <li><a class="dropdown-item" href="publikasi.html">Publikasi</a></li>
-            <li><a class="dropdown-item" href="pengabdian.html">Pengabdian Kepada Masyarakat</a></li>
-            <li><a class="dropdown-item" href="katalog-riset.html">Katalog Hasil Riset</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown px-3">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Kemahasiswaan</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="kegiatan.html">Kegiatan</a></li>
-            <li><a class="dropdown-item" href="prestasi.html">Prestasi</a></li>
-            <li><a class="dropdown-item" href="sertifikasi.html">Sertifikasi Kompetensi</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown px-3">
-          <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Pengembangan</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="pelatihan.html">Pelatihan / Workshop</a></li>
-            <li><a class="dropdown-item" href="magang-dosen.html">Magang Dosen</a></li>
-            <li><a class="dropdown-item active" href="magang-mahasiswa.html">Magang Mahasiswa</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown px-3">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Kerjasama</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="kerjasama-dalam-negeri.html">Dalam Negeri</a></li>
-            <li><a class="dropdown-item" href="kerjasama-luar-negeri.html">Luar Negeri</a></li>
-          </ul>
-        </li>
-        <li class="nav-item px-3"><a class="nav-link" href="fasilitas.html">Fasilitas</a></li>
-        <li class="nav-item px-3"><a class="nav-link" href="kontak.html">Kontak</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<section class="content">
-  <h1>Program Magang Mahasiswa</h1>
-  <div class="research-list">
-    <div class="research-item">
-      <h3>Magang di PT Telekomunikasi Indonesia (Telkom)</h3>
-      <p><strong>Peserta:</strong> Mahasiswa Semester 7</p>
-      <p><strong>Tahun:</strong> 2024</p>
-      <p>Program magang untuk mahasiswa TRKJ dalam bidang infrastruktur jaringan dan monitoring sistem, dilaksanakan di berbagai kantor regional Telkom.</p>
-    </div>
-    <div class="research-item">
-      <h3>Magang di PT Len Industri</h3>
-      <p><strong>Peserta:</strong> Mahasiswa TRKJ</p>
-      <p><strong>Tahun:</strong> 2023</p>
-      <p>Fokus pada pengembangan dan integrasi sistem kontrol industri serta pengalaman kerja lapangan dalam proyek berskala nasional.</p>
-    </div>
-    <div class="research-item">
-      <h3>Magang Proyek Smart City di Diskominfo Kota Padang</h3>
-      <p><strong>Peserta:</strong> Mahasiswa TRKJ</p>
-      <p><strong>Tahun:</strong> 2025</p>
-      <p>Terlibat langsung dalam pengembangan dashboard Smart City, termasuk sistem monitoring CCTV, IoT untuk layanan publik, dan integrasi data.</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  &copy; 2025 PRODI TRKJ – Universitas Bung Hatta, Padang.
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    window.addEventListener("load", function () {
+      const loader = document.getElementById("loader");
+      loader.classList.add("fade-out");
+      setTimeout(() => { loader.style.display = "none"; }, 800);
+    });
+  </script>
 </body>
 </html>

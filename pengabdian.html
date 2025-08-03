@@ -5,121 +5,249 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pengabdian Kepada Masyarakat – PRODI TRKJ</title>
   <link rel="icon" type="image/png" href="universitas-bung-hatta-logo.png" />
-  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Aref+Ruqaa:wght@400;700&family=Catamaran:wght@700&display=swap" rel="stylesheet" />
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  
   <style>
-    /* === CSS (Sesuai File Acuan) === */
+    /* === CSS (Sesuai File Acuan - Lengkap & Konsisten) === */
     :root {
-      --primary:#1e53ea;
-      --secondary:#00008B;
-      --bg-light:#f9f9f9;
+      --primary: #1e53ea;
+      --secondary: #00008B;
+      --bg-light: #f9f9f9;
     }
-    body{font-family:'Aref Ruqaa', serif;background:var(--bg-light);color:#333;}
+    body {
+      font-family: 'Aref Ruqaa', serif;
+      background: var(--bg-light);
+      color: #333;
+    }
 
     /* ===== HEADER ===== */
-    .pnup-header{background:var(--secondary);color:#fff;font-size:.95rem;line-height:1.3;}
-    .pnup-header img{height:75px}
-    .pnup-header h2{font-weight:300;font-size:1.35rem;margin:0}
-    .pnup-header small {color: #cfd8dc;font-size: 1rem;}
+    .pnup-header {
+      background: var(--secondary);
+      color: #fff;
+      font-size: .95rem;
+      line-height: 1.3;
+    }
+    .pnup-header img {
+      height: 75px;
+    }
+    .pnup-header h2 {
+      font-weight: 300;
+      font-size: 1.35rem;
+      margin: 0;
+    }
+    .pnup-header small {
+      color: #cfd8dc;
+      font-size: 1rem;
+    }
 
     /* ===== NAVBAR ===== */
-    .navbar-custom{background:var(--primary);}   
-    .navbar-custom .nav-link, .navbar-custom .navbar-brand {color:#fff;transition:color .3s; font-family: 'Aref Ruqaa', serif;}
-    .navbar-custom .nav-link:hover, .navbar-custom .navbar-brand:hover {color:#cfe3ff;}
-    .navbar-toggler-icon{filter:invert(1);}   
-    .dropdown-menu { font-family: 'Poppins', sans-serif; }
-    .navbar-custom .nav-link.active { font-weight: bold; }
-    .dropdown-menu .dropdown-item.active { background-color: var(--primary); color:white; font-weight:bold;}
-    
+    .navbar-custom {
+      background: var(--primary);
+    }
+    .navbar-custom .nav-link,
+    .navbar-custom .navbar-brand {
+      color: #fff;
+      transition: color .3s;
+      font-family: 'Aref Ruqaa', serif;
+    }
+    .navbar-custom .nav-link:hover,
+    .navbar-custom .navbar-brand:hover {
+      color: #cfe3ff;
+    }
+    .navbar-toggler-icon {
+      filter: invert(1);
+    }
+
     /* ===== CONTENT SECTION ===== */
     .content-section {
       padding: 4rem 0;
       min-height: 70vh;
     }
     .content-section .card {
-      border: none; border-radius: 15px;
+      border: none;
+      border-radius: 15px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      margin-bottom: 2rem; overflow: hidden;
+      margin-bottom: 2rem;
+      overflow: hidden;
     }
     .content-section .card-header {
       background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white; border: none; padding: 1.5rem;
+      color: white;
+      border: none;
+      padding: 1.5rem;
     }
-    .content-section .card-body { padding: 2rem; background: white; }
-    .content-section h2 { font-size: 2.5rem; font-weight: bold; margin-bottom: 0; }
-    
-    /* Style untuk item pengabdian, diadaptasi dari .timeline-item di file acuan */
-    .pengabdian-item {
-      margin-bottom: 2rem; padding: 1.5rem; background: #f8f9fa;
-      border-radius: 10px; border-left: 4px solid var(--primary);
-      transition: all 0.3s ease;
+    .content-section .card-body {
+      padding: 2rem;
+      background: white;
     }
-    .pengabdian-item:last-child { margin-bottom: 0; }
-    .pengabdian-item:hover { background: #e3f2fd; transform: translateX(5px); }
-    .pengabdian-item h3 {
-       font-family: 'Aref Ruqaa', serif; font-size: 1.4rem;
-       font-weight: 700; color: var(--secondary); margin: 0 0 0.75rem 0;
-    }
-    .pengabdian-item .meta-info {
-       display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-bottom: 1rem;
-       font-family: 'Poppins', sans-serif; font-size: 0.9rem; color: #6c757d;
-    }
-    .pengabdian-item p {
-       margin: 0; font-family: 'Poppins', sans-serif;
-       font-size: 1rem; line-height: 1.7; text-align: justify;
+    .content-section h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 0;
     }
 
-    /* ===== FOOTER, LOADER, WA & ANIMATION (Sesuai File Acuan) ===== */
+    /* Style untuk item pengabdian */
+    .pengabdian-item {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: #f8f9fa;
+      border-radius: 10px;
+      border-left: 4px solid var(--primary);
+      transition: all 0.3s ease;
+    }
+    .pengabdian-item:last-child {
+      margin-bottom: 0;
+    }
+    .pengabdian-item:hover {
+      background: #e3f2fd;
+      transform: translateX(5px);
+    }
+    .pengabdian-item h3 {
+      font-family: 'Aref Ruqaa', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin: 0 0 0.75rem 0;
+    }
+    .pengabdian-item .meta-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      margin-bottom: 1rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      color: #6c757d;
+    }
+    .pengabdian-item p {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      text-align: justify;
+    }
+
+    /* ===== LOADER ===== */
     #loader {
-      position: fixed; z-index: 9999; background: #ffffff; width: 100%;
-      height: 100%; top: 0; left: 0; display: flex; flex-direction: column;
-      justify-content: center; align-items: center;
+      position: fixed;
+      z-index: 9999;
+      background: #ffffff;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     .loader-text {
-      font-family: 'Catamaran', sans-serif; font-size: 1.8rem; font-weight: bold;
-      color: #1e53ea; margin-bottom: 20px;
+      font-family: 'Catamaran', sans-serif; /* Diperbaiki: Font loader */
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #1e53ea;
+      margin-bottom: 20px;
     }
-    .loader-boxes { display: flex; gap: 10px; }
+    .loader-boxes {
+      display: flex;
+      gap: 10px;
+    }
     .loader-boxes .box {
-      width: 12px; height: 12px; background: #1e53ea;
+      width: 12px;
+      height: 12px;
+      background: #1e53ea;
       animation: bounce 0.6s infinite alternate;
     }
     .loader-boxes .box:nth-child(2) { animation-delay: 0.2s; }
     .loader-boxes .box:nth-child(3) { animation-delay: 0.4s; }
     .loader-boxes .box:nth-child(4) { animation-delay: 0.6s; }
-    @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-15px); } }
-    .fade-out { opacity: 0; transition: opacity 0.5s ease; }
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-15px); }
+    }
+    .fade-out {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    /* ===== WHATSAPP BUTTON ===== */
     .wa-chat-wrapper {
-      position: fixed; bottom: 20px; right: 20px; display: flex; align-items: center;
-      gap: 6px; background-color: #25D366; border-radius: 25px; padding: 8px 12px 8px 8px;
-      cursor: pointer; transition: all 0.3s ease; z-index: 999;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #25D366;
+      border-radius: 25px;
+      padding: 8px 12px 8px 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 999;
     }
-    .wa-icon { width: 40px; height: 40px; }
+    .wa-icon {
+      width: 40px;
+      height: 40px;
+    }
     .wa-chat-text {
-      color: white; font-size: 14px; font-weight: 600; opacity: 0; width: 0;
-      overflow: hidden; white-space: nowrap; transition: all 0.3s ease; font-family: 'Poppins', sans-serif;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      opacity: 0;
+      width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
     }
-    .wa-chat-wrapper:hover .wa-chat-text { opacity: 1; width: auto; }
-    .fade-in-up { opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s ease forwards; }
-    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+    .wa-chat-wrapper:hover .wa-chat-text {
+      opacity: 1;
+      width: auto;
+    }
+
+    /* ===== ANIMATION ===== */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 576px) {
+      .pnup-header h2 { font-size: 1.05rem; }
+      .pnup-header img { height: 60px; }
+      .content-section { padding: 2rem 0; }
+      .content-section h2 { font-size: 2rem; }
+      .content-section .card-body { padding: 1.5rem; }
+      .pengabdian-item {
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- LOADER -->
   <div id="loader">
-    <div class="loader-text">Kuliah Seru, Prestasi Nomor 1</div>
-    <div class="loader-boxes"><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div></div>
+    <div class="loader-text">Kuliah Seru, Prestasi No. 1</div>
+    <div class="loader-boxes">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
   </div>
 
-  <div class="only-mobile d-block d-lg-none"></div>
-  <div class="only-desktop d-none d-lg-block"></div>
-
+  <!-- HEADER -->
   <section class="pnup-header py-3">
     <div class="container d-flex flex-wrap align-items-center justify-content-between">
       <div class="d-flex align-items-center gap-3">
@@ -133,6 +261,7 @@
     </div>
   </section>
 
+  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-custom shadow-sm sticky-top">
     <div class="container">
       <a class="navbar-brand fw-semibold" href="index.html">Beranda</a>
@@ -189,6 +318,7 @@
     </div>
   </nav>
 
+  <!-- ======== PENGABDIAN CONTENT ======== -->
   <section class="content-section">
     <div class="container">
       <div class="card fade-in-up">
@@ -204,7 +334,6 @@
             </div>
             <p>Kegiatan pelatihan tentang penggunaan Google Workspace dan aplikasi digital lainnya untuk meningkatkan efektivitas dalam proses pembelajaran.</p>
           </div>
-          
           <div class="pengabdian-item">
             <h3>Pendampingan UMKM dalam Transformasi Digital</h3>
             <div class="meta-info">
@@ -213,7 +342,6 @@
             </div>
             <p>Membantu UMKM setempat dalam memanfaatkan platform media sosial dan e-commerce untuk memperluas jangkauan pasar dan meningkatkan penjualan produk lokal.</p>
           </div>
-          
           <div class="pengabdian-item">
             <h3>Edukasi Keamanan Siber untuk Siswa Sekolah Menengah</h3>
             <div class="meta-info">
@@ -227,6 +355,7 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer class="bg-dark text-light pt-5">
     <div class="container">
       <div class="row gy-4">
@@ -245,7 +374,7 @@
               <a href="https://www.tiktok.com/@trkj_ubh" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" style="width: 32px; height: 32px;"></a>
             </div>
           </div>
-          <p>Terhubung dengan Prodi D4 Teknologi Rekayasa Komputer Jaringan melalui social media resmi kami</p>
+          <p>Terhubung dengan Prodi D4 Teknologi Rekayasa Komputer Jaringan melalui media sosial resmi kami</p>
         </div>
         <div class="col-md-4">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127594.7980951301!2d100.3626788!3d-0.9085115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b8b8f385d153%3A0xbd3bdd201ac0c40b!2sKampus%203%20Universitas%20Bung%20Hatta!5e0!3m2!1sid!2sid!4v1718800540897!5m2!1sid!2sid" width="100%" height="250" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -256,11 +385,13 @@
     </div>
   </footer>
 
+  <!-- WHATSAPP BUTTON -->
   <div class="wa-chat-wrapper" onclick="window.open('https://wa.me/6283862646529', '_blank')">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="wa-icon">
     <span class="wa-chat-text">Chat yuk</span>
   </div>
 
+  <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     window.addEventListener("load", function () {
